@@ -16,6 +16,7 @@ import {
   QtySum,
 } from "./BagStyled";
 
+
 function BagModal({ open }) {
   const [sum, setSum] = useState(0);
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import { animateScroll as scroll } from "react-scroll";
 import BagModal from "../BagModal";
@@ -13,12 +13,16 @@ import {
   NavBtn,
   NavBtnLink,
 } from "../Navbar/NavbarStyled";
+import {StateContext} from '../../StateProvider'
 
 const ShopNavbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  const [bagOpen, setBagOpen] = useState(false);
+  const [bagOpen, setBagOpen] = useContext(StateContext);
 
-  const toggleBagOpen = () => setBagOpen(!bagOpen);
+  const toggleBagOpen = () => {
+    console.log('switch bag')
+    setBagOpen(!bagOpen)
+  }
 
   const changeNav = () => {
     if (window.scrollY >= 80) {

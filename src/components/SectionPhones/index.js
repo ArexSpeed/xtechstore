@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {Container, Content, H1, P, Ul, Li, PhoneBoxes, PhonesShow, PhoneBox, PhoneImage, PhoneName, SectionDesc, DescDetails, DescImage, DescPhoneName, Table, Tr, Td, Button} from './PhonesStyled';
-import {WaveUp, WaveDown} from '../SectionWave';
 import {phones} from '../data';
 import imgXphoneOne from '../../images/xphone2.jpg';
 
@@ -33,6 +32,7 @@ function SectionPhones() {
   }
   //with error on image click
   //const handleShowPhoneModelE = (e) => setShowPhoneModel(e.target.lastChild.textContent)
+  //Set model to rotate details
   const handleShowPhoneModel = (model) => {
     setShowPhoneModel(model)
     //rotateBox(model)
@@ -56,7 +56,7 @@ function SectionPhones() {
 
       ))
 
-  const showPhoneModelBox = phones
+  const showPhoneModelBox =  phones
   .filter(phone => phone.model === showPhoneModel)
   .map((phone, index) => (
     <>
