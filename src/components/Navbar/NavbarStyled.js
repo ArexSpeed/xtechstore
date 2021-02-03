@@ -103,9 +103,25 @@ export const NavBtnLink = styled(LinkR)`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+  position: relative;
   &:hover{
     transition: all 0.2s ease-in-out;
     background: ${style.secondaryColor};
     color: #fff;
   }
+`
+export const BtnBagQty = styled.div`
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  border-radius: 20px;
+  background: ${style.secondaryColor};
+  color: white;
 `

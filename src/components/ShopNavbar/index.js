@@ -12,13 +12,14 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLink,
+  BtnBagQty
 } from "../Navbar/NavbarStyled";
 import {StateContext} from '../../StateProvider'
 import {actionTypes} from '../../reducer'
 
 const ShopNavbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  const [{bagOpen}, dispatch] = useContext(StateContext);
+  const [{bagOpen, bagItems}, dispatch] = useContext(StateContext);
 
   const toggleBagOpen = () => {
     console.log('switch bag', bagOpen)
@@ -114,7 +115,10 @@ const ShopNavbar = ({ toggle }) => {
             </NavItem>
           </NavMenu>
           <NavBtn>
-            <NavBtnLink onClick={toggleBagOpen}>Bag</NavBtnLink>
+            <NavBtnLink onClick={toggleBagOpen}>Bag
+            <BtnBagQty>{bagItems.length}</BtnBagQty>
+            </NavBtnLink>
+            
           </NavBtn>
         </NavbarContainer>
       </Nav>

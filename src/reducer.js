@@ -11,7 +11,7 @@ export const initialState = {
       camera: '108MP',
       size: '6,9 inch',
       battery: '6000 mAh',
-      price: '1500$'
+      price: 1500
     },
     {
       series: 'Pro Series',
@@ -23,7 +23,7 @@ export const initialState = {
       camera: '108MP',
       size: '6,3 inch',
       battery: '5000 mAh',
-      price: '1250$'
+      price: 1250
     },
   ]
 };

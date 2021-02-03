@@ -22,7 +22,7 @@ export const phones = [
     camera: '108MP',
     size: '6,9 inch',
     battery: '6000 mAh',
-    price: '1500$'
+    price: 1500
   },
   {
     series: 'Pro Series',
@@ -34,7 +34,7 @@ export const phones = [
     camera: '108MP',
     size: '6,3 inch',
     battery: '5000 mAh',
-    price: '1250$'
+    price: 1250
   },
   {
     series: 'Pro Series',
@@ -46,7 +46,7 @@ export const phones = [
     camera: '64MP',
     size: '5,5 inch',
     battery: '4500 mAh',
-    price: '1000$'
+    price: 1000
   },
   {
     series: 'A Series',
@@ -58,7 +58,7 @@ export const phones = [
     camera: '108MP',
     size: '6,7 inch',
     battery: '5000 mAh',
-    price: '1000$'
+    price: 1000
   },
   {
     series: 'A Series',
@@ -70,7 +70,7 @@ export const phones = [
     camera: '108MP',
     size: '6,3 inch',
     battery: '4000 mAh',
-    price: '800$'
+    price: 800
   },
   {
     series: 'A Series',
@@ -82,7 +82,7 @@ export const phones = [
     camera: '64MP',
     size: '5,5 inch',
     battery: '3500 mAh',
-    price: '600$'
+    price: 600
   },
 ]
 
