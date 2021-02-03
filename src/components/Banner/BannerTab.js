@@ -20,16 +20,9 @@ function BannerTab() {
         <HeroH1>Comfort work in travel</HeroH1>
         <HeroP>
         Create awesome things also in travel with powerful XTab.
+
         </HeroP>
-        <HeroBtnWrapper>
-          <Button to='signup' onMouseEnter={onHover} onMouseLeave={onHover}
-            primary='true'
-            dark='true'
-            smooth={true} duration={500} spy={true} exact='true' offset={-80}
-          >
-            Get started {hover ? <ArrowForward /> : <ArrowRight />}
-          </Button>
-        </HeroBtnWrapper>
+
 
       </HeroContent>
       <WaveDown fill={'#fff'} />

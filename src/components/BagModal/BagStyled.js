@@ -2,7 +2,7 @@ import styled from "styled-components";
 import * as style from "../StyleVariables";
 
 export const BagContainer = styled.section`
-  position: absolute;
+  position: fixed;
   top: 80px;
   right: 10%;
   width: 350px;
