@@ -1,12 +1,11 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useReducer } from "react";
+import reducer, {initialState} from './reducer';
 
 export const StateContext = createContext();
 
-export const StateProvider = props => {
-  const [bagOpen, setBagOpen] = useState(false);
-  return (
-    <StateContext.Provider value={[bagOpen, setBagOpen]}>
-      {props.children}
-    </StateContext.Provider>
-  );
-};
+export const StateProvider = ({children}) => (
+  <StateContext.Provider value={useReducer(reducer, initialState)}>
+  {children}
+</StateContext.Provider>
+)
+

@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useContext} from "react";
 import { WaveDown } from "../SectionWave";
 import phone from "../../images/aphonemini.png";
+import {phones} from '../data';
 
 import {
   ShopContainer,
@@ -17,8 +18,29 @@ import {
   ActionsPrice,
   ActionsDetails,
 } from "./ShopStyled";
+import {StateContext} from '../../StateProvider'
+import {actionTypes} from '../../reducer'
 
 function Shop() {
+  const [{bagItems}, dispatch] = useContext(StateContext);
+
+  const addToBag = (phone) => {
+    //console.log(model, price)
+    dispatch({type: actionTypes.ADD_BAG_ITEM, bagItems: [...bagItems, phone]})
+  }
+
+  const showPhoneBox = phones.map((phone, index) => (
+    <ShopBox key={index}>
+              <ShopBoxImg src={phone.img} />
+              <ShopBoxName>{phone.model}</ShopBoxName>
+              <ShopBoxDesc>{phone.ram}/{phone.storage}/{phone.size}</ShopBoxDesc>
+              <ShopBoxActions>
+                <ActionsPrice>{phone.price}</ActionsPrice>
+                <ActionsAdd onClick={() => addToBag(phone)}>+</ActionsAdd>
+                <ActionsDetails>Details</ActionsDetails>
+              </ShopBoxActions>
+            </ShopBox>
+  ))
   return (
     <>
       <ShopContainer>
@@ -30,23 +52,7 @@ function Shop() {
             <h3>Phone</h3>{" "}
           </ShopBoxTitle>
           <ShopBoxes>
-            <ShopBox>
-              <ShopBoxImg src={phone} />
-              <ShopBoxName>XPhone Pro</ShopBoxName>
-              <ShopBoxDesc>16GB/512GB/6,5"</ShopBoxDesc>
-              <ShopBoxActions>
-                <ActionsPrice>999$</ActionsPrice>
-                <ActionsAdd>+</ActionsAdd>
-                <ActionsDetails>Details</ActionsDetails>
-              </ShopBoxActions>
-            </ShopBox>
-            <ShopBox></ShopBox>
-            <ShopBox></ShopBox>
-            <ShopBox></ShopBox>
-            <ShopBox></ShopBox>
-            <ShopBox></ShopBox>
-            <ShopBox></ShopBox>
-            <ShopBox></ShopBox>
+            {showPhoneBox}
           </ShopBoxes>
         </ShopSection>
         <ShopSection>

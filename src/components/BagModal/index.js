@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import phone from "../../images/aphonemini.png";
+import {phones} from '../data';
 
 import {
   BagContainer,
@@ -16,55 +17,36 @@ import {
   QtySum,
 } from "./BagStyled";
 
+import {StateContext} from '../../StateProvider'
+import {actionTypes} from '../../reducer'
+
 
 function BagModal({ open }) {
   const [sum, setSum] = useState(0);
-  return (
-    <>
-      {open && (
-        <BagContainer>
-          <BagTitle>My Cart</BagTitle>
-          <BagItem>
-            <ItemImg src={phone} />
+  const [{bagItems}, dispatch] = useContext(StateContext)
+
+  const showBagItems = bagItems.map((item, index) => (
+    <BagItem key={index}>
+            <ItemImg src={item.img} />
             <ItemDetails>
-              <ItemName>XPhone Pro</ItemName>
+              <ItemName>{item.model}</ItemName>
               <ItemQty>
-                <ItemPrice>999$</ItemPrice>
+                <ItemPrice>{item.price}</ItemPrice>
                 <QtyMinus onClick={() => setSum(sum - 1)}>-</QtyMinus>
                 <QtySum>{sum}</QtySum>
                 <QtyPlus onClick={() => setSum(sum + 1)}>+</QtyPlus>
               </ItemQty>
             </ItemDetails>
-            <ItemDelete>X</ItemDelete>
+            <ItemDelete onClick={() => dispatch({type: actionTypes.DELETE_BAG_ITEM, payload: item.model})}>X</ItemDelete>
           </BagItem>
+  ))
+  return (
+    <>
+      {open && (
+        <BagContainer>
+          <BagTitle>My Cart</BagTitle>
+          {showBagItems}
 
-          <BagItem>
-            <ItemImg src={phone} />
-            <ItemDetails>
-              <ItemName>XPhone Pro</ItemName>
-              <ItemPrice>999$</ItemPrice>
-              <ItemQty>
-                <QtyMinus>-</QtyMinus>
-                <QtySum>1</QtySum>
-                <QtyPlus>+</QtyPlus>
-              </ItemQty>
-            </ItemDetails>
-            <ItemDelete>X</ItemDelete>
-          </BagItem>
-
-          <BagItem>
-            <ItemImg src={phone} />
-            <ItemDetails>
-              <ItemName>XPhone Pro</ItemName>
-              <ItemPrice>999$</ItemPrice>
-              <ItemQty>
-                <QtyMinus>-</QtyMinus>
-                <QtySum>1</QtySum>
-                <QtyPlus>+</QtyPlus>
-              </ItemQty>
-            </ItemDetails>
-            <ItemDelete>X</ItemDelete>
-          </BagItem>
         </BagContainer>
       )}
     </>
