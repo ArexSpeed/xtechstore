@@ -16,6 +16,7 @@ export const phones = [
     id: 1,
     series: 'Pro Series',
     model: 'Pro 21 Max',
+    description: 'The most powerful phone',
     img: imgXphoneOne,
     cpu: '12-cores X-Brain',
     ram: '16GB',

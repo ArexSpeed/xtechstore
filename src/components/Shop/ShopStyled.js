@@ -16,9 +16,19 @@ export const ShopBanner = styled.div`
   border-radius: 10px;
   margin: 20px auto;
   background: ${style.primaryColor};
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 `;
 export const ShopSection = styled.section`
+  width: 100%;
+  height: auto;
+  margin-top: 50vh;
+  display: flex;
+  flex-direction: column;
+`
+export const ShopBoxSection = styled.section`
   width: 100%;
   display: flex;
   flex-direction: row;

@@ -7,6 +7,7 @@ import {
   ShopContainer,
   ShopBanner,
   ShopSection,
+  ShopBoxSection,
   ShopBoxTitle,
   ShopBoxes,
   ShopBox,
@@ -48,15 +49,17 @@ function Shop() {
         <ShopBanner>
           <WaveDown fill="#000" />
         </ShopBanner>
+
         <ShopSection>
+        <ShopBoxSection>
           <ShopBoxTitle>
             <h3>Phone</h3>{" "}
           </ShopBoxTitle>
           <ShopBoxes>
             {showPhoneBox}
           </ShopBoxes>
-        </ShopSection>
-        <ShopSection>
+        </ShopBoxSection>
+        <ShopBoxSection>
           <ShopBoxTitle> Phone</ShopBoxTitle>
           <ShopBoxes>
             <ShopBox></ShopBox>
@@ -68,8 +71,8 @@ function Shop() {
             <ShopBox></ShopBox>
             <ShopBox></ShopBox>
           </ShopBoxes>
-        </ShopSection>
-        <ShopSection>
+        </ShopBoxSection>
+        <ShopBoxSection>
           <ShopBoxTitle> Phone</ShopBoxTitle>
           <ShopBoxes>
             <ShopBox></ShopBox>
@@ -81,6 +84,7 @@ function Shop() {
             <ShopBox></ShopBox>
             <ShopBox></ShopBox>
           </ShopBoxes>
+        </ShopBoxSection>
         </ShopSection>
       </ShopContainer>
     </>
