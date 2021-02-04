@@ -26,7 +26,8 @@ function Shop() {
 
   const addToBag = (phone) => {
     //console.log(model, price)
-    dispatch({type: actionTypes.ADD_BAG_ITEM, bagItems: [...bagItems, phone]})
+    console.log(phone, 'add to bag')
+    dispatch({type: actionTypes.ADD_BAG_ITEM, bagItems: [...bagItems, {...phone, qty: 1}]})
   }
 
   const showPhoneBox = phones.map((phone, index) => (

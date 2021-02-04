@@ -36,12 +36,12 @@ function BagModal({ open }) {
                 <ItemName>{item.model}</ItemName>
                 <ItemQty>
                   <ItemPrice>${item.price}</ItemPrice>
-                  <QtyMinus onClick={() => setSum(sum - 1)}>-</QtyMinus>
-                  <QtySum>{sum}</QtySum>
-                  <QtyPlus onClick={() => setSum(sum + 1)}>+</QtyPlus>
+                  <QtyMinus onClick={() => dispatch({type: actionTypes.MINUS_ITEM_QTY, payload: item})}>-</QtyMinus>
+                  <QtySum>{item.qty}</QtySum>
+                  <QtyPlus onClick={() => dispatch({type: actionTypes.PLUS_ITEM_QTY, payload: item})}>+</QtyPlus>
                 </ItemQty>
               </ItemDetails>
-              <ItemDelete onClick={() => dispatch({type: actionTypes.DELETE_BAG_ITEM, payload: item.model})}>X</ItemDelete>
+              <ItemDelete onClick={() => dispatch({type: actionTypes.DELETE_BAG_ITEM, payload: item.id})}>X</ItemDelete>
             </BagItem>
     )
   }

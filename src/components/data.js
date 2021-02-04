@@ -13,6 +13,7 @@ import soundbar from '../images/soundbar.jpg';
 
 export const phones = [
   {
+    id: 1,
     series: 'Pro Series',
     model: 'Pro 21 Max',
     img: imgXphoneOne,
@@ -25,6 +26,7 @@ export const phones = [
     price: 1500
   },
   {
+    id: 2,
     series: 'Pro Series',
     model: 'Pro 21',
     img: imgXphoneOne,
@@ -37,6 +39,7 @@ export const phones = [
     price: 1250
   },
   {
+    id: 3,
     series: 'Pro Series',
     model: 'Pro 21 Mini',
     img: XPhoneMini,
@@ -49,6 +52,7 @@ export const phones = [
     price: 1000
   },
   {
+    id: 4,
     series: 'A Series',
     model: 'A 21 Max',
     img: APhoneMax,
@@ -61,6 +65,7 @@ export const phones = [
     price: 1000
   },
   {
+    id: 5,
     series: 'A Series',
     model: 'A 21',
     img: imgXphoneOne,
@@ -73,6 +78,7 @@ export const phones = [
     price: 800
   },
   {
+    id: 6,
     series: 'A Series',
     model: 'A 21 Mini',
     img: APhoneMini,

@@ -2,6 +2,7 @@ export const initialState = {
   bagOpen: false,
   bagItems: [
     {
+      id: 15,
       series: 'Pro Series',
       model: 'Pro 21 Max',
       img: '',
@@ -11,9 +12,11 @@ export const initialState = {
       camera: '108MP',
       size: '6,9 inch',
       battery: '6000 mAh',
-      price: 1500
+      price: 1500,
+      qty: 1
     },
     {
+      id: 16,
       series: 'Pro Series',
       model: 'Pro 21',
       img: '',
@@ -23,7 +26,8 @@ export const initialState = {
       camera: '108MP',
       size: '6,3 inch',
       battery: '5000 mAh',
-      price: 1250
+      price: 1250,
+      qty: 1
     },
   ]
 };
@@ -32,7 +36,8 @@ export const actionTypes = {
   SET_BAG_MODAL: "SET_BAG_MODAL",
   ADD_BAG_ITEM: "ADD_BAG_ITEM",
   DELETE_BAG_ITEM: "DELETE_BAG_ITEM",
-  TEST_COLOR: "TEST_COLOR"
+  PLUS_ITEM_QTY: "PLUS_ITEM_QTY",
+  MINUS_ITEM_QTY: "MINUS_ITEM_QTY",
 };
 
 const reducer = (state, action) => {
@@ -44,11 +49,6 @@ const reducer = (state, action) => {
         ...state,
         bagOpen: action.bagOpen,
       };
-    case actionTypes.TEST_COLOR:
-      return {
-        ...state,
-        color: action.color,
-      };
     case actionTypes.ADD_BAG_ITEM:
       console.log(action.bagItems, "item in action");
       return {
@@ -56,11 +56,23 @@ const reducer = (state, action) => {
         bagItems: action.bagItems,
       };
     case actionTypes.DELETE_BAG_ITEM:
-      console.log(action.bagItems, "item to delete");
+      console.log(action.payload, "item to delete");
       return {
         ...state,
-        bagItems: state.bagItems.filter((x) => x.model !== action.payload),
+        bagItems: state.bagItems.filter((x) => x.id !== action.payload),
       };
+      case actionTypes.PLUS_ITEM_QTY:
+        console.log(action.payload.id, "add qty");
+        return {
+          ...state,
+          qty: state.bagItems.filter((x) => x.id === action.payload.id ? x.qty++ : ''),
+        };
+        case actionTypes.MINUS_ITEM_QTY:
+          console.log(action.payload.id, "add qty");
+          return {
+            ...state,
+            qty: state.bagItems.filter((x) => x.id === action.payload.id ? x.qty-- : ''),
+          };
     default:
       return state;
   }
