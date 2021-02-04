@@ -42,6 +42,10 @@ const ShopNavbar = ({ toggle }) => {
     scroll.scrollToTop();
   };
 
+  //count of item in bag
+  let bagQty = []
+  bagItems.map(item => bagQty.push(item.qty))
+
   return (
     <>
       <Nav scrollNav={scrollNav}>
@@ -116,7 +120,7 @@ const ShopNavbar = ({ toggle }) => {
           </NavMenu>
           <NavBtn>
             <NavBtnLink onClick={toggleBagOpen}>Bag
-            <BtnBagQty>{bagItems.length}</BtnBagQty>
+            <BtnBagQty>{bagQty.reduce((a,b) => a+b)}</BtnBagQty>
             </NavBtnLink>
             
           </NavBtn>

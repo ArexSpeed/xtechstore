@@ -25,10 +25,11 @@ function BagModal({ open }) {
   const [sum, setSum] = useState(0);
   const [{bagItems}, dispatch] = useContext(StateContext)
 
-  let totalPrice = []
+  // totalItems -> array of price and qty of one item in bag
+  let totalItems = []
   const showBagItems = bagItems.map((item, index) => 
   {
-    totalPrice.push(item.price)
+    totalItems.push({price: item.price, qty: item.qty})
     return (
       <BagItem key={index}>
               <ItemImg src={item.img} />
@@ -36,7 +37,7 @@ function BagModal({ open }) {
                 <ItemName>{item.model}</ItemName>
                 <ItemQty>
                   <ItemPrice>${item.price}</ItemPrice>
-                  <QtyMinus onClick={() => dispatch({type: actionTypes.MINUS_ITEM_QTY, payload: item})}>-</QtyMinus>
+                  <QtyMinus onClick={() => item.qty > 1 ? dispatch({type: actionTypes.MINUS_ITEM_QTY, payload: item}) : dispatch({type: actionTypes.DELETE_BAG_ITEM, payload: item.id})}>-</QtyMinus>
                   <QtySum>{item.qty}</QtySum>
                   <QtyPlus onClick={() => dispatch({type: actionTypes.PLUS_ITEM_QTY, payload: item})}>+</QtyPlus>
                 </ItemQty>
@@ -46,13 +47,17 @@ function BagModal({ open }) {
     )
   }
   )
+  //totalPrice -> price of one chosen item -> price*qty
+  let totalPrice = []
+  totalItems.map(item => totalPrice.push(item.price*item.qty))
   
   return (
     <>
       {open && (
         <BagContainer>
           <BagTitle>My Cart</BagTitle>
-          Total: ${totalPrice.reduce((a,b) => a+b)}
+          Total: 
+          ${totalPrice.reduce((a,b) => a+b)}
           {showBagItems}
 
         </BagContainer>
