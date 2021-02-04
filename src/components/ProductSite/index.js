@@ -4,14 +4,20 @@ import {
   ProductContainer,
   ProductDetails,
   ProductImage,
-  DescDetails,
-  DescPhoneName,
-  Table,
-  Tr,
-  Td,
-  Button,
+  ProductContainerImage,
+  ProductImageTitle,
+  ProductTitle,
+  ProductPrice,
+  ProductDesc,
+  ProductTable,
+  ProductTableRow,
+  ProductTr,
+  ProductTd,
+  ProductTdDesc,
+  ProductButton,
   ProductOther,
-  OtherTitle,
+  ProductOtherTitle,
+
 } from "./ProductStyled";
 
 import {
@@ -30,49 +36,52 @@ function ProductSite({ match }) {
   return (
     <>
       <ProductContainer>
-        <ProductImage />
+        <ProductContainerImage>
+          <ProductImageTitle>XBook</ProductImageTitle>
+          <ProductImage />
+        </ProductContainerImage>
 
         <ProductDetails>
-          <DescDetails>
-            <DescPhoneName>Iphone 11</DescPhoneName>
-            <Table>
-              <Tr>
-                <Td>CPU:</Td>
-                <Td>4Ghz</Td>
-              </Tr>
+          <ProductTitle>XPhone Pro</ProductTitle>
+          <ProductPrice>1200$</ProductPrice>
+          <ProductDesc>The best of our offer</ProductDesc>
+          <ProductTable>
+            <ProductTableRow>
+            <ProductTr>
+              <ProductTd>64GB</ProductTd>
+              <ProductTdDesc>RAM</ProductTdDesc>
+            </ProductTr>
+            <ProductTr>
+              <ProductTd>128GB</ProductTd>
+              <ProductTdDesc>Storage</ProductTdDesc>
+            </ProductTr>
+            <ProductTr>
+              <ProductTd>6,5"</ProductTd>
+              <ProductTdDesc>Size</ProductTdDesc>
+            </ProductTr>
+            </ProductTableRow>
+            <ProductTableRow>
+            <ProductTr>
+              <ProductTd>120MPx</ProductTd>
+              <ProductTdDesc>Camera</ProductTdDesc>
+            </ProductTr>
+            <ProductTr>
+              <ProductTd>X-36</ProductTd>
+              <ProductTdDesc>CPU</ProductTdDesc>
+            </ProductTr>
+            <ProductTr>
+              <ProductTd>5000mAh</ProductTd>
+              <ProductTdDesc>Battery</ProductTdDesc>
+            </ProductTr>
+            </ProductTableRow>
+          </ProductTable>
 
-              <Tr>
-                <Td>RAM:</Td>
-                <Td>12GB</Td>
-              </Tr>
-
-              <Tr>
-                <Td>Storage:</Td>
-                <Td>1TB</Td>
-              </Tr>
-              <Tr>
-                <Td>Camera:</Td>
-                <Td>100Mp</Td>
-              </Tr>
-              <Tr>
-                <Td>Size:</Td>
-                <Td>6,5"</Td>
-              </Tr>
-              <Tr>
-                <Td>Battery:</Td>
-                <Td>5000mah</Td>
-              </Tr>
-              <Tr>
-                <Td>Price:</Td>
-                <Td>999$</Td>
-              </Tr>
-            </Table>
-            <Button>Add to cart</Button>
-          </DescDetails>
+          <ProductButton>Add to cart</ProductButton>
         </ProductDetails>
       </ProductContainer>
+      
       <ProductOther>
-        <h1>Other phones</h1>
+        <ProductOtherTitle>Other phones</ProductOtherTitle>
         <ShopBoxes>
           <ShopBox>
             <ShopBoxImg />

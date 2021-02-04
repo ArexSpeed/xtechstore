@@ -61,3 +61,18 @@ export const WaveUp = ({fill}) => {
       </svg>
     )
       }
+
+      export const WaveProduct = ({fill}) => {
+        const styles = {
+          width: '100%',
+          position: 'relative',
+          left: '0',
+          top: '0',
+          flex: '1'
+        }
+        return (
+        <svg viewBox="0 0 1440 320" style={styles}>
+        <path fill={fill} fill-opacity="1" d="M0,256L120,234.7C240,213,480,171,720,165.3C960,160,1200,192,1320,208L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+      </svg>
+      )
+        }
