@@ -1,6 +1,60 @@
 import styled from "styled-components";
 import * as style from "../StyleVariables";
 
+//Main site
+export const AdminContainer = styled.div`
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+`
+export const AddButton = styled.button`
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  font-size: 30px;
+  padding: 0px;
+  color: ${style.secondaryColor};
+  background:${style.primaryColor};
+  border: none;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  position: relative;
+  &:hover{
+    color: ${style.primaryColor};
+    background:${style.secondaryColor};
+    transition: 0.3s ease-in;
+  }
+`
+export const ButtonSpan = styled.span`
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+`
+
+export const Table = styled.table`
+width: 90%;
+margin-top: 20px;
+`
+export const TableHead = styled.tr`
+  font-weight: bold;
+`
+export const TableRow = styled.tr`
+  height: 30px;
+  box-shadow: 0 0 4px rgba(0,0,0,.3);
+  &:nth-child(odd){
+    background: ${style.primaryColorShadow};
+  }
+  &:nth-child(even){
+    background: ${style.secondaryColorShadow};
+    color: #fff;
+  }
+`
+//Add Modal
 export const AddItemContainer = styled.section`
   position: fixed;
   width: 500px;

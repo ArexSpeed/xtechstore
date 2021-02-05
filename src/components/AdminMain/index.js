@@ -1,6 +1,9 @@
 import {useEffect, useState} from 'react'
 import AddItem from './AddItem'
 import axios from 'axios'
+import {
+  AdminContainer, AddButton, ButtonSpan, Table, TableHead, TableRow
+} from "./AdminStyled";
 
 const AdminMain = () => {
   const [phones, setPhones] = useState([])
@@ -18,30 +21,32 @@ const AdminMain = () => {
   }, [])
 
   const showPhones = phones.map((phone, index) => (
-    <tr>
+    <TableRow>
       <td>{phone.series}</td>
       <td>{phone.model}</td>
       <td>{phone.price}</td>
       <td>{phone.storage}</td>
-    </tr>
+    </TableRow>
   ))
   return (
       <>
-      <button onClick={() => setOpen(!open)}>Add</button>
-      <AddItem open={open}>Add Phone</AddItem>
-        <table>
-          <th>
+      <AdminContainer>
+      <AddButton onClick={() => setOpen(!open)}><ButtonSpan>+</ButtonSpan></AddButton>
+      <AddItem open={open}></AddItem>
+        <Table>
+          <TableHead>
             <td>Series</td>
             <td>Model</td>
             <td>Price</td>
             <td>Storage</td>
-          </th>
+          </TableHead>
           {showPhones}
-        </table>
+        </Table>
 
         <form>
           
         </form>
+        </AdminContainer>
       </>
   )
 }
