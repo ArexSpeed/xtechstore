@@ -4,11 +4,14 @@ import axios from 'axios'
 import {
   AdminContainer, AddButton, ButtonSpan, Table, TableHead, TableRow
 } from "./AdminStyled";
+import EditItem from './EditItem';
 
 const AdminMain = () => {
   const [phones, setPhones] = useState([])
   const [addPhone, setAddPhone] = useState({})
   const [open, setOpen] = useState(false)
+  const [edit, setEdit] = useState(false)
+  const [editItem, setEditItem] = useState([])
 
   useEffect(() => {
     const fetchPhones = async () => {
@@ -33,13 +36,15 @@ const AdminMain = () => {
       <td>{phone.battery}</td>
       <td>{phone.price}</td>
       <td>{phone.img}</td>
+      <td><button onClick={() => {setEdit(!edit); setEditItem(phone); console.log(phone, 'in edit')}}>Edit</button> <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
     </TableRow>
   ))
   return (
       <>
       <AdminContainer>
       <AddButton onClick={() => setOpen(!open)}><ButtonSpan>+</ButtonSpan></AddButton>
-      <AddItem open={open}></AddItem>
+      <AddItem open={open} />
+      <EditItem edit={edit} editItem={editItem} />
         <Table>
           <TableHead>
             <td>Series</td>
