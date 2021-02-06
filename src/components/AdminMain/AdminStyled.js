@@ -45,7 +45,6 @@ export const TableHead = styled.tr`
 `
 export const TableRow = styled.tr`
   height: 30px;
-  box-shadow: 0 0 4px rgba(0,0,0,.3);
   &:nth-child(odd){
     background: ${style.primaryColorShadow};
   }
@@ -58,7 +57,7 @@ export const TableRow = styled.tr`
 export const AddItemContainer = styled.section`
   position: fixed;
   width: 500px;
-  max-height: 500px;
+  height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -73,6 +72,7 @@ export const AddItemContainer = styled.section`
   box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2),
     -5px 0 10px rgba(255, 255, 255, 0.2);
   z-index: 10;
+  overflow: scroll;
 `;
 
 export const FormAdd = styled.form`
@@ -95,13 +95,18 @@ export const FormRow = styled.div`
 export const FormInput = styled.input`
   width: 50%;
   height: 25px;
-  border-radius: 10px;
   font-size: 20px;
+  border: none;
+  border-bottom: 2px solid ${style.secondaryColor};
+
 `
 export const FormLabel = styled.label`
   height: 25px;
   border-radius: 10px;
   font-size: 20px;
+  padding: 0 10px;
+  background: ${style.primaryColor};
+  border-radius: 0 20px 20px 0;
 `
 export const FormButton = styled.button`
   border-radius: 50px;

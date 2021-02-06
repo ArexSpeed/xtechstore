@@ -21,11 +21,18 @@ const AdminMain = () => {
   }, [])
 
   const showPhones = phones.map((phone, index) => (
-    <TableRow>
+    <TableRow key={index}>
       <td>{phone.series}</td>
       <td>{phone.model}</td>
-      <td>{phone.price}</td>
+      <td>{phone.description}</td>
+      <td>{phone.cpu}</td>
+      <td>{phone.ram}</td>
       <td>{phone.storage}</td>
+      <td>{phone.camera}</td>
+      <td>{phone.size}</td>
+      <td>{phone.battery}</td>
+      <td>{phone.price}</td>
+      <td>{phone.img}</td>
     </TableRow>
   ))
   return (
@@ -37,8 +44,16 @@ const AdminMain = () => {
           <TableHead>
             <td>Series</td>
             <td>Model</td>
-            <td>Price</td>
+            <td>Description</td>
+            <td>CPU</td>
+            <td>RAM</td>
             <td>Storage</td>
+            <td>Camera</td>
+            <td>Size</td>
+            <td>Battery</td>
+            <td>Price</td>
+            <td>Img</td>
+            <td></td>
           </TableHead>
           {showPhones}
         </Table>
