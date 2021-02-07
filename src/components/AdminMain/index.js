@@ -1,4 +1,5 @@
 import {useEffect, useState, useContext} from 'react'
+import {Link} from 'react-router-dom'
 import AddItem from './AddItem'
 import axios from 'axios'
 import {
@@ -43,7 +44,7 @@ const AdminMain = () => {
       <td>{phone.battery}</td>
       <td>{phone.price}</td>
       <td>{phone.img}</td>
-      <td><button onClick={() => {setEdit(!edit); setEditItem(phone); console.log(phone, 'in edit')}}>Edit</button> <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
+      <td><Link to={`/admin/${phone._id}`} onClick={() => {setEdit(!edit); console.log(phone, 'in edit')}}>Edit</Link> <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
     </TableRow>
   ))
   return (
@@ -51,7 +52,7 @@ const AdminMain = () => {
       <AdminContainer>
       <AddButton onClick={() => setOpen(!open)}><ButtonSpan>+</ButtonSpan></AddButton>
       <AddItem open={open} />
-      <EditItem edit={edit} editItem={editItem} />
+     
         <Table>
           <TableHead>
             <td>Series</td>

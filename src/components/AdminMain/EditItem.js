@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
+import { useHistory} from "react-router-dom";
 import {
   AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton
 } from "./AdminStyled";
@@ -7,11 +8,11 @@ import {StateContext} from '../../StateProvider'
 import {actionTypes} from '../../reducer'
 
 
-const EditItem = ({edit, editItem}) => {
+const EditItem = ({match}) => {
+  let history = useHistory();
   const [{adminPhones}, dispatch] = useContext(StateContext)
-  const [phones, setPhones] = useState([])
   const [item, setItem] = useState([{
-    series: editItem.series,
+    series: '',
     model: '',
     description: '',
     cpu: '',
@@ -25,25 +26,27 @@ const EditItem = ({edit, editItem}) => {
   }])
 // in this item state value in input is not displaying
 
-console.log(editItem, 'editItem')
-
+console.log(match.params.id, 'editItem')
+const currentItemId = match.params.id
 useEffect(() => {
-  const selectedItem = adminPhones.find(item => item._id === editItem)
-  //setItem(selectedItem)
+  const selectedItem = adminPhones.find(item => item._id === currentItemId)
+  setItem(selectedItem)
   console.log(selectedItem, 'selected Item in effect')
-  //console.log(selectedItem.series, 'selected Item series in effect')
   console.log(item, 'item in effect')
-},[editItem])
-  const sendItem = () => {
+},[])
+  const sendItem = (e) => {
+    e.preventDefault()
     console.log(item)
-    axios.put(`/api/phones/${editItem._id}`, item)
+    axios.put(`/api/phones/${currentItemId}`, item)
+    window.location.reload(true);
+    history.push("/admin");
   }
-console.log(item, 'item in edit')
+
   return (
     <>
-    {edit && (
+    (
       <AddItemContainer>
-        <FormAdd autoComplete="off" onSubmit={sendItem}>
+        <FormAdd onSubmit={sendItem}>
           <FormRow>
             <FormLabel htmlFor="series">Series:</FormLabel>
             <FormInput
@@ -167,7 +170,7 @@ console.log(item, 'item in edit')
           <FormButton type="submit">Submit</FormButton>
         </FormAdd>
       </AddItemContainer>
-    )}
+    )
   </>
 );
 }
