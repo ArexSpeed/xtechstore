@@ -1,29 +1,36 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useContext} from 'react'
 import AddItem from './AddItem'
 import axios from 'axios'
 import {
   AdminContainer, AddButton, ButtonSpan, Table, TableHead, TableRow
 } from "./AdminStyled";
 import EditItem from './EditItem';
+import {StateContext} from '../../StateProvider'
+import {actionTypes} from '../../reducer'
+
 
 const AdminMain = () => {
+  const [{adminPhones}, dispatch] = useContext(StateContext)
   const [phones, setPhones] = useState([])
   const [addPhone, setAddPhone] = useState({})
   const [open, setOpen] = useState(false)
   const [edit, setEdit] = useState(false)
-  const [editItem, setEditItem] = useState([])
+  const [editItem, setEditItem] = useState('')
+
+
 
   useEffect(() => {
     const fetchPhones = async () => {
       const { data } = await axios.get('/api/phones')
+      dispatch({type: actionTypes.ADMIN_GET_PHONES, payload: data})
       console.log(data, 'Phone')
-      setPhones(data)
+      //setPhones(data)
     }
 
     fetchPhones()
   }, [])
 
-  const showPhones = phones.map((phone, index) => (
+  const showPhones = adminPhones.map((phone, index) => (
     <TableRow key={index}>
       <td>{phone.series}</td>
       <td>{phone.model}</td>

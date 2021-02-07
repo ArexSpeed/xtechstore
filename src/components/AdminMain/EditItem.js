@@ -1,26 +1,39 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {
   AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton
 } from "./AdminStyled";
+import {StateContext} from '../../StateProvider'
+import {actionTypes} from '../../reducer'
+
 
 const EditItem = ({edit, editItem}) => {
-  const [item, setItem] = useState({
+  const [{adminPhones}, dispatch] = useContext(StateContext)
+  const [phones, setPhones] = useState([])
+  const [item, setItem] = useState([{
     series: editItem.series,
-    model: editItem.model,
-    description: editItem.description,
-    cpu: editItem.cpu,
-    ram: editItem.ram,
-    storage: editItem.storage,
-    camera: editItem.camera,
-    size: editItem.size,
-    battery: editItem.battery,
-    price: editItem.price,
-    img:  editItem.img
-  })
+    model: '',
+    description: '',
+    cpu: '',
+    ram: '',
+    storage: '',
+    camera: '',
+    size: '',
+    battery: '',
+    price: '',
+    img:  ''
+  }])
 // in this item state value in input is not displaying
 
 console.log(editItem, 'editItem')
+
+useEffect(() => {
+  const selectedItem = adminPhones.find(item => item._id === editItem)
+  //setItem(selectedItem)
+  console.log(selectedItem, 'selected Item in effect')
+  //console.log(selectedItem.series, 'selected Item series in effect')
+  console.log(item, 'item in effect')
+},[editItem])
   const sendItem = () => {
     console.log(item)
     axios.put(`/api/phones/${editItem._id}`, item)
@@ -35,7 +48,6 @@ console.log(item, 'item in edit')
             <FormLabel htmlFor="series">Series:</FormLabel>
             <FormInput
               name="series"
-              label="series"
               type="text"
               fullWith
               value={item.series}
