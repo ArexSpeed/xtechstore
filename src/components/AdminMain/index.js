@@ -12,7 +12,7 @@ import {actionTypes} from '../../reducer'
 
 
 const AdminMain = () => {
-  const [{adminPhones, adminUltrabooks, currentEditId, adminEditForm}, dispatch] = useContext(StateContext)
+  const [{adminPhones, adminUltrabooks, adminPanel}, dispatch] = useContext(StateContext)
   const [phones, setPhones] = useState([])
   const [addPhone, setAddPhone] = useState({})
   const [open, setOpen] = useState(false)
@@ -77,27 +77,33 @@ const AdminMain = () => {
   return (
       <>
       <AdminContainer>
-      <AddButton onClick={() => setOpen(!open)}><ButtonSpan>+</ButtonSpan></AddButton>
-      <AddItem open={open} />
-      <EditItem edit={edit} />
-        <Table>
-          <TableHead>
-            <td>Series</td>
-            <td>Model</td>
-            <td>Description</td>
-            <td>CPU</td>
-            <td>RAM</td>
-            <td>Storage</td>
-            <td>Camera</td>
-            <td>Size</td>
-            <td>Battery</td>
-            <td>Price</td>
-            <td>Img</td>
-            <td></td>
-          </TableHead>
-          {showPhones}
-        </Table>
-
+        {adminPanel === 'phones' ? (
+          <>
+          <AddButton onClick={() => setOpen(!open)}><ButtonSpan>+</ButtonSpan></AddButton>
+          <AddItem open={open} />
+          <EditItem edit={edit} />
+            <Table>
+              <TableHead>
+                <td>Series</td>
+                <td>Model</td>
+                <td>Description</td>
+                <td>CPU</td>
+                <td>RAM</td>
+                <td>Storage</td>
+                <td>Camera</td>
+                <td>Size</td>
+                <td>Battery</td>
+                <td>Price</td>
+                <td>Img</td>
+                <td></td>
+              </TableHead>
+              {showPhones}
+            </Table>
+            </>
+        )
+        :
+        adminPanel === 'ultrabooks' ? (
+        <>
         <AddButton onClick={() => setOpenUltrabook(!openUltrabook)}><ButtonSpan>+</ButtonSpan></AddButton>
         <AddUltrabook open={openUltrabook} />
         <Table>
@@ -118,10 +124,13 @@ const AdminMain = () => {
           
           {showUltrabooks}
         </Table>
+        </>
+        ) : "Something went wrong"}
+      
 
-        <form>
-          
-        </form>
+        
+
+
         </AdminContainer>
       </>
   )
