@@ -3,6 +3,7 @@ export const initialState = {
   bagItems: [],
   adminPhones: [],
   currentEditId: '',
+  adminUltrabooks: []
 };
 
 export const actionTypes = {
@@ -16,6 +17,7 @@ export const actionTypes = {
   SET_CURRENT_EDIT_ID: "SET_CURRENT_EDIT_ID",
   ADMIN_EDIT_PHONE: "ADMIN_EDIT_PHONE",
   ADMIN_DELETE_PHONE: "ADMIN_DELETE_PHONE",
+  ADMIN_GET_ULTRABOOKS: "ADMIN_GET_ULTRABOOKS",
 };
 
 const reducer = (state, action) => {
@@ -65,6 +67,11 @@ const reducer = (state, action) => {
             ...state,
             adminPhones: state.adminPhones.map(phone => phone._id === action.payload._id ? action.payload : phone),
           };
+          case actionTypes.ADMIN_GET_ULTRABOOKS:
+            return{
+              ...state,
+              adminUltrabooks: action.payload
+            }
     default:
       return state;
   }

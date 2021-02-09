@@ -83,6 +83,24 @@ export const NavLinks = styled(LinkS)`
     border-bottom: 3px solid ${style.primaryColor};
   }
 `
+export const NavLinksAdmin = styled(LinkR)`
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.35s ease-in-out;
+  &:hover,
+  &.active{
+    color: #01bf71;
+    border-top: 3px solid ${style.primaryColor};
+    border-bottom: 3px solid ${style.primaryColor};
+  }
+`
 
 export const NavBtn = styled.nav`
   display: flex;
