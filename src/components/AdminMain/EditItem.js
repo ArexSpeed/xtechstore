@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
-import { useHistory} from "react-router-dom";
 import {
   AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton
 } from "./AdminStyled";
@@ -9,8 +8,7 @@ import {actionTypes} from '../../reducer'
 
 
 const EditItem = ({edit}) => {
-  let history = useHistory();
-  const [{adminPhones,currentEditId, adminEdit}, dispatch] = useContext(StateContext)
+  const [{adminPhones,currentEditId}, dispatch] = useContext(StateContext)
   const [item, setItem] = useState([])
 
 console.log(currentEditId, 'editItem')
@@ -22,18 +20,17 @@ useEffect(() => {
   if(selectedItem){
     setItem(selectedItem)
   }
-  //setItem good and display on input value but is not editable
   console.log(selectedItem, 'selected Item in effect')
   console.log(item, 'item in effect')
-},[adminPhones, currentItemId, item])
+  //delete item from dependecy effect to change value in input
+},[adminPhones, currentItemId])
 
   const sendItem = (e) => {
-    
-    console.log(item)
-    dispatch({type: actionTypes.ADMIN_EDIT, payload: !adminEdit})
+    console.log(item, 'sending item')
     axios.put(`/api/phones/${currentItemId}`, item)
     
   }
+
 
   return (
     <>

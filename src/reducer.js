@@ -3,7 +3,6 @@ export const initialState = {
   bagItems: [],
   adminPhones: [],
   currentEditId: '',
-  adminEdit: false,
 };
 
 export const actionTypes = {
@@ -12,7 +11,6 @@ export const actionTypes = {
   DELETE_BAG_ITEM: "DELETE_BAG_ITEM",
   PLUS_ITEM_QTY: "PLUS_ITEM_QTY",
   MINUS_ITEM_QTY: "MINUS_ITEM_QTY",
-  ADMIN_EDIT: "ADMIN_EDIT",
   ADMIN_GET_PHONES: "ADMIN_GET_PHONES",
   ADMIN_ADD_PHONE: "ADMIN_ADD_PHONE",
   SET_CURRENT_EDIT_ID: "SET_CURRENT_EDIT_ID",
@@ -61,11 +59,6 @@ const reducer = (state, action) => {
         return {
           ...state,
           currentEditId: action.payload,
-        };
-      case actionTypes.ADMIN_EDIT:
-        return {
-          ...state,
-          adminEdit: action.payload,
         };
         case actionTypes.ADMIN_EDIT_PHONE:
           return {

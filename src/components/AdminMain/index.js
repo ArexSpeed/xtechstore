@@ -11,17 +11,12 @@ import {actionTypes} from '../../reducer'
 
 
 const AdminMain = () => {
-  const [{adminPhones, currentEditId, adminEdit}, dispatch] = useContext(StateContext)
+  const [{adminPhones, currentEditId, adminEditForm}, dispatch] = useContext(StateContext)
   const [phones, setPhones] = useState([])
   const [addPhone, setAddPhone] = useState({})
   const [open, setOpen] = useState(false)
   const [edit, setEdit] = useState(false)
   const [editItem, setEditItem] = useState('')
-
-
-  // useEffect(() => {
-  //   window.location.reload(true);
-  // }, [])
 
   useEffect(() => {
     const fetchPhones = async () => {
@@ -47,7 +42,8 @@ const AdminMain = () => {
       <td>{phone.battery}</td>
       <td>{phone.price}</td>
       <td>{phone.img}</td>
-      <td><button onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: phone._id}); setEdit(!edit)}}>Edit</button> <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
+      <td><button onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: phone._id}); setEdit(!edit)}}>Edit</button> 
+      <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
     </TableRow>
   ))
   return (
