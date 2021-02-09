@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react";
+import { useHistory} from "react-router-dom";
+
 import axios from 'axios'
 import {
   AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton
@@ -11,6 +13,7 @@ import {actionTypes} from '../../reducer'
 function AddItem({ open }) {
   //const [sum, setSum] = useState(0);
   //const [{bagItems}, dispatch] = useContext(StateContext)
+  let history = useHistory();
   const [item, setItem] = useState({
     series: '',
     model: '',

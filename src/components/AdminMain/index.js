@@ -11,7 +11,7 @@ import {actionTypes} from '../../reducer'
 
 
 const AdminMain = () => {
-  const [{adminPhones, adminEdit}, dispatch] = useContext(StateContext)
+  const [{adminPhones, currentEditId, adminEdit}, dispatch] = useContext(StateContext)
   const [phones, setPhones] = useState([])
   const [addPhone, setAddPhone] = useState({})
   const [open, setOpen] = useState(false)
@@ -47,7 +47,7 @@ const AdminMain = () => {
       <td>{phone.battery}</td>
       <td>{phone.price}</td>
       <td>{phone.img}</td>
-      <td><Link to={`/admin/${phone._id}`}>Edit</Link> <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
+      <td><button onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: phone._id}); setEdit(!edit)}}>Edit</button> <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
     </TableRow>
   ))
   return (
@@ -55,6 +55,7 @@ const AdminMain = () => {
       <AdminContainer>
       <AddButton onClick={() => setOpen(!open)}><ButtonSpan>+</ButtonSpan></AddButton>
       <AddItem open={open} />
+      <EditItem edit={edit} />
         <Table>
           <TableHead>
             <td>Series</td>

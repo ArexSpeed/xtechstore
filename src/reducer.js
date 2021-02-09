@@ -2,6 +2,7 @@ export const initialState = {
   bagOpen: false,
   bagItems: [],
   adminPhones: [],
+  currentEditId: '',
   adminEdit: false,
 };
 
@@ -14,6 +15,7 @@ export const actionTypes = {
   ADMIN_EDIT: "ADMIN_EDIT",
   ADMIN_GET_PHONES: "ADMIN_GET_PHONES",
   ADMIN_ADD_PHONE: "ADMIN_ADD_PHONE",
+  SET_CURRENT_EDIT_ID: "SET_CURRENT_EDIT_ID",
   ADMIN_EDIT_PHONE: "ADMIN_EDIT_PHONE",
   ADMIN_DELETE_PHONE: "ADMIN_DELETE_PHONE",
 };
@@ -55,11 +57,21 @@ const reducer = (state, action) => {
         ...state,
         adminPhones: action.payload
       }
+      case actionTypes.SET_CURRENT_EDIT_ID:
+        return {
+          ...state,
+          currentEditId: action.payload,
+        };
       case actionTypes.ADMIN_EDIT:
         return {
           ...state,
           adminEdit: action.payload,
         };
+        case actionTypes.ADMIN_EDIT_PHONE:
+          return {
+            ...state,
+            adminPhones: state.adminPhones.map(phone => phone._id === action.payload._id ? action.payload : phone),
+          };
     default:
       return state;
   }

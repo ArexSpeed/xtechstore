@@ -8,43 +8,36 @@ import {StateContext} from '../../StateProvider'
 import {actionTypes} from '../../reducer'
 
 
-const EditItem = ({match}) => {
+const EditItem = ({edit}) => {
   let history = useHistory();
-  const [{adminPhones, adminEdit}, dispatch] = useContext(StateContext)
-  const [item, setItem] = useState([{
-    series: '',
-    model: '',
-    description: '',
-    cpu: '',
-    ram: '',
-    storage: '',
-    camera: '',
-    size: '',
-    battery: '',
-    price: '',
-    img:  ''
-  }])
-// in this item state value in input is not displaying
+  const [{adminPhones,currentEditId, adminEdit}, dispatch] = useContext(StateContext)
+  const [item, setItem] = useState([])
 
-console.log(match.params.id, 'editItem')
-const currentItemId = match.params.id
+console.log(currentEditId, 'editItem')
+const currentItemId = currentEditId
+console.log(adminPhones)
+
 useEffect(() => {
   const selectedItem = adminPhones.find(item => item._id === currentItemId)
-  setItem(selectedItem)
+  if(selectedItem){
+    setItem(selectedItem)
+  }
+  //setItem good and display on input value but is not editable
   console.log(selectedItem, 'selected Item in effect')
   console.log(item, 'item in effect')
-},[])
+},[adminPhones, currentItemId, item])
+
   const sendItem = (e) => {
-    e.preventDefault()
+    
     console.log(item)
     dispatch({type: actionTypes.ADMIN_EDIT, payload: !adminEdit})
     axios.put(`/api/phones/${currentItemId}`, item)
-    history.push("/admin");
+    
   }
 
   return (
     <>
-    (
+    {edit &&
       <AddItemContainer>
         <FormAdd onSubmit={sendItem}>
           <FormRow>
@@ -170,7 +163,7 @@ useEffect(() => {
           <FormButton type="submit">Submit</FormButton>
         </FormAdd>
       </AddItemContainer>
-    )
+}
   </>
 );
 }
