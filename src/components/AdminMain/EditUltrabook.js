@@ -7,27 +7,26 @@ import {StateContext} from '../../StateProvider'
 import {actionTypes} from '../../reducer'
 
 
-const EditItem = ({edit}) => {
-  const [{adminPhones,currentEditId}, dispatch] = useContext(StateContext)
+const EditUltrabook = ({edit}) => {
+  const [{adminUltrabooks,currentEditId}, dispatch] = useContext(StateContext)
   const [item, setItem] = useState([])
 
 console.log(currentEditId, 'editItem')
 const currentItemId = currentEditId
-console.log(adminPhones)
 
 useEffect(() => {
-  const selectedItem = adminPhones.find(item => item._id === currentItemId)
+  const selectedItem = adminUltrabooks.find(item => item._id === currentItemId)
   if(selectedItem){
     setItem(selectedItem)
   }
   console.log(selectedItem, 'selected Item in effect')
   console.log(item, 'item in effect')
   //delete item from dependecy effect to change value in input
-},[adminPhones, currentItemId])
+},[adminUltrabooks, currentItemId])
 
-  const sendItem = () => {
+  const sendItem = (e) => {
     console.log(item, 'sending item')
-    axios.put(`/api/phones/${currentItemId}`, item)
+    axios.put(`/api/ultrabooks/${currentItemId}`, item)
   }
 
 
@@ -164,4 +163,4 @@ useEffect(() => {
 );
 }
 
-export default EditItem
+export default EditUltrabook

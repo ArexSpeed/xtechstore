@@ -35,6 +35,36 @@ export const ButtonSpan = styled.span`
       left: 50%;
       transform: translate(-50%, -50%);
 `
+export const ButtonActions = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
+
+export const EditButton = styled.button`
+  width: 60px; 
+  height: 30px;
+  font-size: 20px;
+  background: rgb(255, 255, 0);
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+`
+export const DeleteButton = styled.button`
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+  background: rgb(255, 0, 0);
+  color: #fff;
+  padding: 0;
+  margin: 5px;
+  cursor: pointer;
+`
 
 export const Table = styled.table`
 width: 90%;

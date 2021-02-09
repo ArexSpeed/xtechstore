@@ -4,9 +4,10 @@ import AddItem from './AddItem'
 import AddUltrabook from './AddUltrabook'
 import axios from 'axios'
 import {
-  AdminContainer, AddButton, ButtonSpan, Table, TableHead, TableRow
+  AdminContainer, AddButton, ButtonActions, EditButton, DeleteButton, ButtonSpan, Table, TableHead, TableRow
 } from "./AdminStyled";
 import EditItem from './EditItem';
+import EditUltrabook from './EditUltrabook';
 import {StateContext} from '../../StateProvider'
 import {actionTypes} from '../../reducer'
 
@@ -17,7 +18,8 @@ const AdminMain = () => {
   const [addPhone, setAddPhone] = useState({})
   const [open, setOpen] = useState(false)
   const [openUltrabook, setOpenUltrabook] = useState(false)
-  const [edit, setEdit] = useState(false)
+  const [editPhone, setEditPhone] = useState(false)
+  const [editUltrabook, setEditUltrabook] = useState(false)
   const [editItem, setEditItem] = useState('')
 
   useEffect(() => {
@@ -52,8 +54,12 @@ const AdminMain = () => {
       <td>{phone.battery}</td>
       <td>{phone.price}</td>
       <td>{phone.img}</td>
-      <td><button onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: phone._id}); setEdit(!edit)}}>Edit</button> 
-      <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
+      <td>
+        <ButtonActions>
+        <EditButton onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: phone._id}); setEditPhone(!editPhone)}}>Edit</EditButton> 
+        <form><DeleteButton type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</DeleteButton></form>
+        </ButtonActions>
+      </td>
     </TableRow>
   ))
 
@@ -70,8 +76,12 @@ const AdminMain = () => {
       <td>{ultrabook.battery}</td>
       <td>{ultrabook.price}</td>
       <td>{ultrabook.img}</td>
-      <td><button onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: ultrabook._id}); setEdit(!edit)}}>Edit</button> 
-      <form><button type="submit" onClick={() => axios.delete(`/api/ultrabook/${ultrabook._id}`)}>X</button></form></td>
+      <td>
+        <ButtonActions>
+        <EditButton onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: ultrabook._id}); setEditUltrabook(!editUltrabook)}}>Edit</EditButton> 
+        <form><DeleteButton type="submit" onClick={() => {axios.delete(`/api/ultrabooks/${ultrabook._id}`); console.log('ultrabook to delete', ultrabook._id)}}>X</DeleteButton></form>
+        </ButtonActions>
+      </td>
     </TableRow>
   ))
   return (
@@ -81,7 +91,7 @@ const AdminMain = () => {
           <>
           <AddButton onClick={() => setOpen(!open)}><ButtonSpan>+</ButtonSpan></AddButton>
           <AddItem open={open} />
-          <EditItem edit={edit} />
+          <EditItem edit={editPhone} />
             <Table>
               <TableHead>
                 <td>Series</td>
@@ -106,6 +116,7 @@ const AdminMain = () => {
         <>
         <AddButton onClick={() => setOpenUltrabook(!openUltrabook)}><ButtonSpan>+</ButtonSpan></AddButton>
         <AddUltrabook open={openUltrabook} />
+        <EditUltrabook edit={editUltrabook} />
         <Table>
           <TableHead>
             <td>Series</td>
