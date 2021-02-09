@@ -1,7 +1,8 @@
 export const initialState = {
   bagOpen: false,
   bagItems: [],
-  adminPhones: []
+  adminPhones: [],
+  adminEdit: false,
 };
 
 export const actionTypes = {
@@ -10,6 +11,7 @@ export const actionTypes = {
   DELETE_BAG_ITEM: "DELETE_BAG_ITEM",
   PLUS_ITEM_QTY: "PLUS_ITEM_QTY",
   MINUS_ITEM_QTY: "MINUS_ITEM_QTY",
+  ADMIN_EDIT: "ADMIN_EDIT",
   ADMIN_GET_PHONES: "ADMIN_GET_PHONES",
   ADMIN_ADD_PHONE: "ADMIN_ADD_PHONE",
   ADMIN_EDIT_PHONE: "ADMIN_EDIT_PHONE",
@@ -53,6 +55,11 @@ const reducer = (state, action) => {
         ...state,
         adminPhones: action.payload
       }
+      case actionTypes.ADMIN_EDIT:
+        return {
+          ...state,
+          adminEdit: action.payload,
+        };
     default:
       return state;
   }

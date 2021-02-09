@@ -11,7 +11,7 @@ import {actionTypes} from '../../reducer'
 
 
 const AdminMain = () => {
-  const [{adminPhones}, dispatch] = useContext(StateContext)
+  const [{adminPhones, adminEdit}, dispatch] = useContext(StateContext)
   const [phones, setPhones] = useState([])
   const [addPhone, setAddPhone] = useState({})
   const [open, setOpen] = useState(false)
@@ -19,6 +19,9 @@ const AdminMain = () => {
   const [editItem, setEditItem] = useState('')
 
 
+  // useEffect(() => {
+  //   window.location.reload(true);
+  // }, [])
 
   useEffect(() => {
     const fetchPhones = async () => {
@@ -44,7 +47,7 @@ const AdminMain = () => {
       <td>{phone.battery}</td>
       <td>{phone.price}</td>
       <td>{phone.img}</td>
-      <td><Link to={`/admin/${phone._id}`} onClick={() => {setEdit(!edit); console.log(phone, 'in edit')}}>Edit</Link> <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
+      <td><Link to={`/admin/${phone._id}`}>Edit</Link> <form><button type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</button></form></td>
     </TableRow>
   ))
   return (
@@ -52,7 +55,6 @@ const AdminMain = () => {
       <AdminContainer>
       <AddButton onClick={() => setOpen(!open)}><ButtonSpan>+</ButtonSpan></AddButton>
       <AddItem open={open} />
-     
         <Table>
           <TableHead>
             <td>Series</td>

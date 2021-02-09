@@ -10,7 +10,7 @@ import {actionTypes} from '../../reducer'
 
 const EditItem = ({match}) => {
   let history = useHistory();
-  const [{adminPhones}, dispatch] = useContext(StateContext)
+  const [{adminPhones, adminEdit}, dispatch] = useContext(StateContext)
   const [item, setItem] = useState([{
     series: '',
     model: '',
@@ -37,8 +37,8 @@ useEffect(() => {
   const sendItem = (e) => {
     e.preventDefault()
     console.log(item)
+    dispatch({type: actionTypes.ADMIN_EDIT, payload: !adminEdit})
     axios.put(`/api/phones/${currentItemId}`, item)
-    window.location.reload(true);
     history.push("/admin");
   }
 
