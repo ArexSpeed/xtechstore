@@ -57,7 +57,7 @@ function BagModal({ open }) {
         <BagContainer>
           <BagTitle>My Cart</BagTitle>
           Total: 
-          ${totalPrice.reduce((a,b) => a+b)}
+          ${bagItems.length > 0 && totalPrice.reduce((a,b) => a+b)}
           {showBagItems}
 
         </BagContainer>

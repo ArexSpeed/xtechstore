@@ -120,7 +120,7 @@ const ShopNavbar = ({ toggle }) => {
           </NavMenu>
           <NavBtn>
             <NavBtnLink onClick={toggleBagOpen}>Bag
-            <BtnBagQty>{bagQty.reduce((a,b) => a+b)}</BtnBagQty>
+            <BtnBagQty>{bagItems.length > 0 && bagQty.reduce((a,b) => a+b)}</BtnBagQty>
             </NavBtnLink>
             
           </NavBtn>
