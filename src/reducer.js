@@ -1,10 +1,11 @@
 export const initialState = {
   bagOpen: false,
   bagItems: [],
-  adminPanel: 'phones',
+  adminPanel: "phones",
   adminPhones: [],
-  currentEditId: '',
-  adminUltrabooks: []
+  currentEditId: "",
+  adminUltrabooks: [],
+  adminWatches: [],
 };
 
 export const actionTypes = {
@@ -20,6 +21,7 @@ export const actionTypes = {
   ADMIN_EDIT_PHONE: "ADMIN_EDIT_PHONE",
   ADMIN_DELETE_PHONE: "ADMIN_DELETE_PHONE",
   ADMIN_GET_ULTRABOOKS: "ADMIN_GET_ULTRABOOKS",
+  ADMIN_GET_WATCHES: "ADMIN_GET_WATCHES",
 };
 
 const reducer = (state, action) => {
@@ -42,43 +44,54 @@ const reducer = (state, action) => {
         ...state,
         bagItems: state.bagItems.filter((x) => x.id !== action.payload),
       };
-      case actionTypes.PLUS_ITEM_QTY:
-        console.log(action.payload.id, "add qty");
-        return {
-          ...state,
-          qty: state.bagItems.filter((x) => x.id === action.payload.id ? x.qty++ : ''),
-        };
-        case actionTypes.MINUS_ITEM_QTY:
-          console.log(action.payload.id, "add qty");
-          return {
-            ...state,
-            qty: state.bagItems.filter((x) => x.id === action.payload.id ? x.qty-- : ''),
-          };
-          case actionTypes.ADMIN_PANEL:
-            return{
-              ...state,
-              adminPanel: action.payload
-            } 
-    case actionTypes.ADMIN_GET_PHONES:
-      return{
+    case actionTypes.PLUS_ITEM_QTY:
+      console.log(action.payload.id, "add qty");
+      return {
         ...state,
-        adminPhones: action.payload
-      }
-      case actionTypes.SET_CURRENT_EDIT_ID:
-        return {
-          ...state,
-          currentEditId: action.payload,
-        };
-        case actionTypes.ADMIN_EDIT_PHONE:
-          return {
-            ...state,
-            adminPhones: state.adminPhones.map(phone => phone._id === action.payload._id ? action.payload : phone),
-          };
-          case actionTypes.ADMIN_GET_ULTRABOOKS:
-            return{
-              ...state,
-              adminUltrabooks: action.payload
-            }
+        qty: state.bagItems.filter((x) =>
+          x.id === action.payload.id ? x.qty++ : ""
+        ),
+      };
+    case actionTypes.MINUS_ITEM_QTY:
+      console.log(action.payload.id, "add qty");
+      return {
+        ...state,
+        qty: state.bagItems.filter((x) =>
+          x.id === action.payload.id ? x.qty-- : ""
+        ),
+      };
+    case actionTypes.ADMIN_PANEL:
+      return {
+        ...state,
+        adminPanel: action.payload,
+      };
+    case actionTypes.ADMIN_GET_PHONES:
+      return {
+        ...state,
+        adminPhones: action.payload,
+      };
+    case actionTypes.SET_CURRENT_EDIT_ID:
+      return {
+        ...state,
+        currentEditId: action.payload,
+      };
+    case actionTypes.ADMIN_EDIT_PHONE:
+      return {
+        ...state,
+        adminPhones: state.adminPhones.map((phone) =>
+          phone._id === action.payload._id ? action.payload : phone
+        ),
+      };
+    case actionTypes.ADMIN_GET_ULTRABOOKS:
+      return {
+        ...state,
+        adminUltrabooks: action.payload,
+      };
+    case actionTypes.ADMIN_GET_WATCHES:
+      return {
+        ...state,
+        adminWatches: action.payload,
+      };
     default:
       return state;
   }
