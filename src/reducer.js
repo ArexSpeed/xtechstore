@@ -6,6 +6,7 @@ export const initialState = {
   currentEditId: "",
   adminUltrabooks: [],
   adminWatches: [],
+  adminTablets: [],
 };
 
 export const actionTypes = {
@@ -22,6 +23,7 @@ export const actionTypes = {
   ADMIN_DELETE_PHONE: "ADMIN_DELETE_PHONE",
   ADMIN_GET_ULTRABOOKS: "ADMIN_GET_ULTRABOOKS",
   ADMIN_GET_WATCHES: "ADMIN_GET_WATCHES",
+  ADMIN_GET_TABLETS: "ADMIN_GET_TABLETS",
 };
 
 const reducer = (state, action) => {
@@ -91,6 +93,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         adminWatches: action.payload,
+      };
+      case actionTypes.ADMIN_GET_TABLETS:
+      return {
+        ...state,
+        adminTablets: action.payload,
       };
     default:
       return state;
