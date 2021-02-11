@@ -8,48 +8,57 @@ import AddItem from './AddItem'
 import AddUltrabook from './AddUltrabook'
 import AddWatch from './AddWatch'
 import AddTablet from './AddTablet'
+import AddAccessory from './AddAccessory'
 import EditItem from './EditItem';
 import EditUltrabook from './EditUltrabook';
 import EditWatch from './EditWatch';
 import EditTablet from './EditTablet';
+import EditAccessory from './EditAccessory';
 
 import {StateContext} from '../../StateProvider'
 import {actionTypes} from '../../reducer'
 
 
 const AdminMain = () => {
-  const [{adminPhones, adminUltrabooks,adminWatches,adminTablets, adminPanel}, dispatch] = useContext(StateContext)
+  const [{adminPhones, adminUltrabooks,adminWatches,adminTablets,adminAccessories, adminPanel}, dispatch] = useContext(StateContext)
   const [phones, setPhones] = useState([])
   const [addPhone, setAddPhone] = useState({})
   const [open, setOpen] = useState(false)
   const [openUltrabook, setOpenUltrabook] = useState(false)
   const [openWatch, setOpenWatch] = useState(false)
   const [openTablet, setOpenTablet] = useState(false)
+  const [openAccessory, setOpenAccessory] = useState(false)
 
   const [editPhone, setEditPhone] = useState(false)
   const [editUltrabook, setEditUltrabook] = useState(false)
   const [editWatch, setEditWatch] = useState(false)
   const [editTablet, setEditTablet] = useState(false)
+  const [editAccessory, setEditAccessory] = useState(false)
 
   useEffect(() => {
     const fetchPhones = async () => {
       const { data } = await axios.get('/api/phones')
-      dispatch({type: actionTypes.ADMIN_GET_PHONES, payload: data})
+      dispatch({type: "ADMIN_GET_PHONES", payload: data})
 
     }
     const fetchUltrabooks = async () => {
       const { data } = await axios.get('/api/ultrabooks')
-      dispatch({type: actionTypes.ADMIN_GET_ULTRABOOKS, payload: data})
+      dispatch({type: "ADMIN_GET_ULTRABOOKS", payload: data})
 
     }
     const fetchWatches = async () => {
       const { data } = await axios.get('/api/watches')
-      dispatch({type: actionTypes.ADMIN_GET_WATCHES, payload: data})
+      dispatch({type: "ADMIN_GET_WATCHES", payload: data})
 
     }
     const fetchTablets = async () => {
       const { data } = await axios.get('/api/tablets')
-      dispatch({type: actionTypes.ADMIN_GET_TABLETS, payload: data})
+      dispatch({type: "ADMIN_GET_TABLETS", payload: data})
+
+    }
+    const fetchAccessories = async () => {
+      const { data } = await axios.get('/api/accessories')
+      dispatch({type: "ADMIN_GET_ACCESSORIES", payload: data})
 
     }
 
@@ -57,6 +66,7 @@ const AdminMain = () => {
     fetchUltrabooks()
     fetchWatches()
     fetchTablets()
+    fetchAccessories()
   }, [])
 
 
@@ -75,7 +85,7 @@ const AdminMain = () => {
       <td>{phone.img}</td>
       <td>
         <ButtonActions>
-        <EditButton onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: phone._id}); setEditPhone(!editPhone)}}>Edit</EditButton> 
+        <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: phone._id}); setEditPhone(!editPhone)}}>Edit</EditButton> 
         <form><DeleteButton type="submit" onClick={() => axios.delete(`/api/phones/${phone._id}`)}>X</DeleteButton></form>
         </ButtonActions>
       </td>
@@ -97,7 +107,7 @@ const AdminMain = () => {
       <td>{ultrabook.img}</td>
       <td>
         <ButtonActions>
-        <EditButton onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: ultrabook._id}); setEditUltrabook(!editUltrabook)}}>Edit</EditButton> 
+        <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: ultrabook._id}); setEditUltrabook(!editUltrabook)}}>Edit</EditButton> 
         <form><DeleteButton type="submit" onClick={() => {axios.delete(`/api/ultrabooks/${ultrabook._id}`); console.log('ultrabook to delete', ultrabook._id)}}>X</DeleteButton></form>
         </ButtonActions>
       </td>
@@ -123,7 +133,7 @@ const AdminMain = () => {
       <td>{watch.img}</td>
       <td>
         <ButtonActions>
-        <EditButton onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: watch._id}); setEditWatch(!editWatch)}}>Edit</EditButton> 
+        <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: watch._id}); setEditWatch(!editWatch)}}>Edit</EditButton> 
         <form><DeleteButton type="submit" onClick={() => axios.delete(`/api/watches/${watch._id}`)}>X</DeleteButton></form>
         </ButtonActions>
       </td>
@@ -145,8 +155,23 @@ const AdminMain = () => {
       <td>{tablet.img}</td>
       <td>
         <ButtonActions>
-        <EditButton onClick={() => {dispatch({type: actionTypes.SET_CURRENT_EDIT_ID, payload: tablet._id}); setEditTablet(!editTablet)}}>Edit</EditButton> 
+        <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: tablet._id}); setEditTablet(!editTablet)}}>Edit</EditButton> 
         <form><DeleteButton type="submit" onClick={() => axios.delete(`/api/tablets/${tablet._id}`)}>X</DeleteButton></form>
+        </ButtonActions>
+      </td>
+    </TableRow>
+  ))
+
+  const showAccessories = adminAccessories.map((accessory, index) => (
+    <TableRow key={index}>
+      <td>{accessory.name}</td>
+      <td>{accessory.description}</td>
+      <td>{accessory.price}</td>
+      <td>{accessory.img}</td>
+      <td>
+        <ButtonActions>
+        <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: accessory._id}); setEditAccessory(!editAccessory)}}>Edit</EditButton> 
+        <form><DeleteButton type="submit" onClick={() => axios.delete(`/api/phones/${accessory._id}`)}>X</DeleteButton></form>
         </ButtonActions>
       </td>
     </TableRow>
@@ -252,6 +277,26 @@ const AdminMain = () => {
               </TableHead>
               
               {showTablets}
+            </Table>
+            </>
+        )
+        :
+        adminPanel === 'accessories' ?
+        (
+            <>
+            <AddButton onClick={() => setOpenAccessory(!openAccessory)}><ButtonSpan>+</ButtonSpan></AddButton>
+            <AddAccessory open={openAccessory} />
+            <EditAccessory edit={editAccessory} />
+            <Table>
+              <TableHead>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Price</td>
+                <td>Img</td>
+                <td></td>
+              </TableHead>
+              
+              {showAccessories}
             </Table>
             </>
         )

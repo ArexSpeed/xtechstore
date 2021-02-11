@@ -7,6 +7,7 @@ export const initialState = {
   adminUltrabooks: [],
   adminWatches: [],
   adminTablets: [],
+  adminAccessories: []
 };
 
 export const actionTypes = {
@@ -24,6 +25,7 @@ export const actionTypes = {
   ADMIN_GET_ULTRABOOKS: "ADMIN_GET_ULTRABOOKS",
   ADMIN_GET_WATCHES: "ADMIN_GET_WATCHES",
   ADMIN_GET_TABLETS: "ADMIN_GET_TABLETS",
+  ADMIN_GET_ACCESSORIES: "ADMIN_GET_ACCESSORIES",
 };
 
 const reducer = (state, action) => {
@@ -98,6 +100,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         adminTablets: action.payload,
+      };
+      case actionTypes.ADMIN_GET_ACCESSORIES:
+      return {
+        ...state,
+        adminAccessories: action.payload,
       };
     default:
       return state;
