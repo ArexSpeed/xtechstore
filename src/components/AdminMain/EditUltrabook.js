@@ -1,4 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
+import FileBase from 'react-file-base64'
+
 import axios from 'axios'
 import {
   AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton
@@ -146,13 +148,7 @@ useEffect(() => {
 
           <FormRow>
             <FormLabel htmlFor="img">Image:</FormLabel>
-            <FormInput
-              name="img"
-              type="file"
-              fullWith
-              value={item.img}
-              onChange={(e) => setItem({ ...item, img: e.target.value })}
-            />
+            <FileBase type="file" multiple={false} onDone={({base64}) => setItem({...item, img: base64})} />
           </FormRow>
 
           <FormButton type="submit">Submit</FormButton>

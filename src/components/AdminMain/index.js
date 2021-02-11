@@ -2,7 +2,7 @@ import {useEffect, useState, useContext} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {
-  AdminContainer, AddButton, ButtonActions, EditButton, DeleteButton, ButtonSpan, Table, TableHead, TableRow
+  AdminContainer, AddButton, ButtonActions, EditButton, DeleteButton, ButtonSpan, Table, TableHead, TableRow, TableImg
 } from "./AdminStyled";
 import AddItem from './AddItem'
 import AddUltrabook from './AddUltrabook'
@@ -82,7 +82,7 @@ const AdminMain = () => {
       <td>{phone.size}</td>
       <td>{phone.battery}</td>
       <td>{phone.price}</td>
-      <td>{phone.img}</td>
+      <td><TableImg src={phone.img} alt="phone" /></td>
       <td>
         <ButtonActions>
         <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: phone._id}); setEditPhone(!editPhone)}}>Edit</EditButton> 
@@ -104,7 +104,7 @@ const AdminMain = () => {
       <td>{ultrabook.size}</td>
       <td>{ultrabook.battery}</td>
       <td>{ultrabook.price}</td>
-      <td>{ultrabook.img}</td>
+      <td><TableImg src={ultrabook.img} alt="ultrabook" /></td>
       <td>
         <ButtonActions>
         <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: ultrabook._id}); setEditUltrabook(!editUltrabook)}}>Edit</EditButton> 
@@ -130,7 +130,7 @@ const AdminMain = () => {
            WP: {watch.addons.waterproof ? ' O ' : ' X '}
       </td>
       <td>{watch.price}</td>
-      <td>{watch.img}</td>
+      <td><TableImg src={watch.img} alt="watch" /></td>
       <td>
         <ButtonActions>
         <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: watch._id}); setEditWatch(!editWatch)}}>Edit</EditButton> 
@@ -152,7 +152,7 @@ const AdminMain = () => {
       <td>{tablet.size}</td>
       <td>{tablet.battery}</td>
       <td>{tablet.price}</td>
-      <td>{tablet.img}</td>
+      <td><TableImg src={tablet.img} alt="tablet" /></td>
       <td>
         <ButtonActions>
         <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: tablet._id}); setEditTablet(!editTablet)}}>Edit</EditButton> 
@@ -167,7 +167,7 @@ const AdminMain = () => {
       <td>{accessory.name}</td>
       <td>{accessory.description}</td>
       <td>{accessory.price}</td>
-      <td>{accessory.img}</td>
+      <td><TableImg src={accessory.img} alt="accessory" /></td>
       <td>
         <ButtonActions>
         <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: accessory._id}); setEditAccessory(!editAccessory)}}>Edit</EditButton> 

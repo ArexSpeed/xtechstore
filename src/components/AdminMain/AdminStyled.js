@@ -83,6 +83,9 @@ export const TableRow = styled.tr`
     color: #fff;
   }
 `
+export const TableImg = styled.img`
+  max-height: 40px;
+`
 //Add Modal
 export const AddItemContainer = styled.section`
   position: fixed;

@@ -1,13 +1,10 @@
 import React, { useState, useContext } from "react";
-import { useHistory} from "react-router-dom";
-
+import FileBase from 'react-file-base64'
 import axios from 'axios'
 import {
   AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton
 } from "./AdminStyled";
 
-import {StateContext} from '../../StateProvider'
-import {actionTypes} from '../../reducer'
 
 
 function AddAccessory({ open }) {
@@ -64,13 +61,7 @@ function AddAccessory({ open }) {
 
             <FormRow>
               <FormLabel htmlFor="img">Image:</FormLabel>
-              <FormInput
-                name="img"
-                type="file"
-                fullWith
-                value={item.img}
-                onChange={(e) => setItem({ ...item, img: e.target.value })}
-              />
+              <FileBase type="file" multiple={false} onDone={({base64}) => setItem({...item, img: base64})} />
             </FormRow>
 
             <FormButton type="submit">Submit</FormButton>
