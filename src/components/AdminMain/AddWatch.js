@@ -2,12 +2,16 @@ import React, { useState, useContext } from "react";
 import FileBase from 'react-file-base64'
 import axios from 'axios'
 import {
-  AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton
+  AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton, FormCancel
 } from "./AdminStyled";
+import {StateContext} from '../../StateProvider'
 
 
 
-function AddWatch({ open }) {
+
+function AddWatch() {
+  const [{openAddWatch}, dispatch] = useContext(StateContext)
+
 
   const [item, setItem] = useState({
     series: '',
@@ -36,7 +40,7 @@ function AddWatch({ open }) {
   
   return (
     <>
-      {open && (
+      {openAddWatch && (
         <AddItemContainer>
           <FormAdd autoComplete="off" onSubmit={sendItem}>
             <FormRow>
@@ -177,7 +181,10 @@ function AddWatch({ open }) {
               <FileBase type="file" multiple={false} onDone={({base64}) => setItem({...item, img: base64})} />
             </FormRow>
 
+            <FormRow>
             <FormButton type="submit">Submit</FormButton>
+            <FormCancel onClick={() => dispatch({type: 'OPEN_ADD_WATCH', payload: false})}>Cancel</FormCancel>
+            </FormRow>
           </FormAdd>
         </AddItemContainer>
       )}

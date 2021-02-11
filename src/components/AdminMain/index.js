@@ -164,7 +164,7 @@ const AdminMain = () => {
       <td>
         <ButtonActions>
         <EditButton onClick={() => {dispatch({type: 'SET_CURRENT_EDIT_ID', payload: accessory._id}); setEditAccessory(!editAccessory)}}>Edit</EditButton> 
-        <form><DeleteButton type="submit" onClick={() => axios.delete(`/api/phones/${accessory._id}`)}>X</DeleteButton></form>
+        <form><DeleteButton type="submit" onClick={() => axios.delete(`/api/accessories/${accessory._id}`)}>X</DeleteButton></form>
         </ButtonActions>
       </td>
     </TableRow>

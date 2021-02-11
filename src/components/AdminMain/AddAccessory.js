@@ -2,12 +2,13 @@ import React, { useState, useContext } from "react";
 import FileBase from 'react-file-base64'
 import axios from 'axios'
 import {
-  AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton
+  AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton, FormCancel
 } from "./AdminStyled";
+import {StateContext} from '../../StateProvider'
 
+function AddAccessory() {
+  const [{openAddAccessory}, dispatch] = useContext(StateContext)
 
-
-function AddAccessory({ open }) {
   const [item, setItem] = useState({
     name: '',
     description: '',
@@ -22,7 +23,7 @@ function AddAccessory({ open }) {
   
   return (
     <>
-      {open && (
+      {openAddAccessory && (
         <AddItemContainer>
           <FormAdd onSubmit={sendItem}>
             <FormRow>
@@ -64,7 +65,10 @@ function AddAccessory({ open }) {
               <FileBase type="file" multiple={false} onDone={({base64}) => setItem({...item, img: base64})} />
             </FormRow>
 
+            <FormRow>
             <FormButton type="submit">Submit</FormButton>
+            <FormCancel onClick={() => dispatch({type: 'OPEN_ADD_ACCESSORY', payload: false})}>Cancel</FormCancel>
+            </FormRow>
           </FormAdd>
         </AddItemContainer>
       )}
