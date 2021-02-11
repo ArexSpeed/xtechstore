@@ -146,6 +146,39 @@ export const FormButton = styled.button`
   padding: 10px 40px;
   margin: 10px;
   border: none;
+  background: ${style.primaryColor};
+  color: ${style.secondaryColor};
+  box-shadow: 0 0 5px rgba(0,0,0,.3);
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+  &:before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: ${style.secondaryColor};
+    transition: all 1s;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  &:hover::before{
+    width: 100%;
+  }
+  &:hover{
+    color: ${style.primaryColor}
+  }
+`
+
+export const FormCancel = styled.button`
+  border-radius: 50px;
+  padding: 10px 40px;
+  margin: 10px;
+  border: none;
   background: ${style.secondaryColor};
   color: ${style.primaryColor};
   box-shadow: 0 0 5px rgba(0,0,0,.3);

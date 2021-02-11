@@ -2,12 +2,17 @@ export const initialState = {
   bagOpen: false,
   bagItems: [],
   adminPanel: "phones",
+  openAddPhone: false,
+  openAddUltrabook: false,
+  openAddWatch: false,
+  openAddTablet: false,
+  openAddAccessory: false,
   adminPhones: [],
   currentEditId: "",
   adminUltrabooks: [],
   adminWatches: [],
   adminTablets: [],
-  adminAccessories: []
+  adminAccessories: [],
 };
 
 export const actionTypes = {
@@ -16,6 +21,11 @@ export const actionTypes = {
   DELETE_BAG_ITEM: "DELETE_BAG_ITEM",
   PLUS_ITEM_QTY: "PLUS_ITEM_QTY",
   MINUS_ITEM_QTY: "MINUS_ITEM_QTY",
+  OPEN_ADD_PHONE: "OPEN_ADD_PHONE",
+  OPEN_ADD_ULTRABOOK: "OPEN_ADD_ULTRABOOK",
+  OPEN_ADD_WATCH: "OPEN_ADD_WATCH",
+  OPEN_ADD_TABLET: "OPEN_ADD_TABLET",
+  OPEN_ADD_ACCESSORY: "OPEN_ADD_ACCESSORY",
   ADMIN_PANEL: "ADMIN_PANEL",
   ADMIN_GET_PHONES: "ADMIN_GET_PHONES",
   ADMIN_ADD_PHONE: "ADMIN_ADD_PHONE",
@@ -64,6 +74,31 @@ const reducer = (state, action) => {
           x.id === action.payload.id ? x.qty-- : ""
         ),
       };
+    case actionTypes.OPEN_ADD_PHONE:
+      return {
+        ...state,
+        openAddPhone: action.payload,
+      };
+    case actionTypes.OPEN_ADD_ULTRABOOK:
+      return {
+        ...state,
+        openAddUltrabook: action.payload,
+      };
+    case actionTypes.OPEN_ADD_WATCH:
+      return {
+        ...state,
+        openAddWatch: action.payload,
+      };
+    case actionTypes.OPEN_ADD_TABLET:
+      return {
+        ...state,
+        openAddTablet: action.payload,
+      };
+    case actionTypes.OPEN_ADD_ACCESSORY:
+      return {
+        ...state,
+        openAddAccessory: action.payload,
+      };
     case actionTypes.ADMIN_PANEL:
       return {
         ...state,
@@ -96,12 +131,12 @@ const reducer = (state, action) => {
         ...state,
         adminWatches: action.payload,
       };
-      case actionTypes.ADMIN_GET_TABLETS:
+    case actionTypes.ADMIN_GET_TABLETS:
       return {
         ...state,
         adminTablets: action.payload,
       };
-      case actionTypes.ADMIN_GET_ACCESSORIES:
+    case actionTypes.ADMIN_GET_ACCESSORIES:
       return {
         ...state,
         adminAccessories: action.payload,

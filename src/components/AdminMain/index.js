@@ -21,13 +21,6 @@ import {actionTypes} from '../../reducer'
 
 const AdminMain = () => {
   const [{adminPhones, adminUltrabooks,adminWatches,adminTablets,adminAccessories, adminPanel}, dispatch] = useContext(StateContext)
-  const [phones, setPhones] = useState([])
-  const [addPhone, setAddPhone] = useState({})
-  const [open, setOpen] = useState(false)
-  const [openUltrabook, setOpenUltrabook] = useState(false)
-  const [openWatch, setOpenWatch] = useState(false)
-  const [openTablet, setOpenTablet] = useState(false)
-  const [openAccessory, setOpenAccessory] = useState(false)
 
   const [editPhone, setEditPhone] = useState(false)
   const [editUltrabook, setEditUltrabook] = useState(false)
@@ -181,8 +174,8 @@ const AdminMain = () => {
       <AdminContainer>
         {adminPanel === 'phones' ? (
           <>
-          <AddButton onClick={() => setOpen(!open)}><ButtonSpan>+</ButtonSpan></AddButton>
-          <AddItem open={open} />
+          <AddButton onClick={() => dispatch({type: 'OPEN_ADD_PHONE', payload: true})}><ButtonSpan>+</ButtonSpan></AddButton>
+          <AddItem />
           <EditItem edit={editPhone} />
             <Table>
               <TableHead>
@@ -206,8 +199,8 @@ const AdminMain = () => {
         :
         adminPanel === 'ultrabooks' ? (
         <>
-        <AddButton onClick={() => setOpenUltrabook(!openUltrabook)}><ButtonSpan>+</ButtonSpan></AddButton>
-        <AddUltrabook open={openUltrabook} />
+        <AddButton onClick={() => dispatch({type: 'OPEN_ADD_ULTRABOOK', payload: true})}><ButtonSpan>+</ButtonSpan></AddButton>
+        <AddUltrabook />
         <EditUltrabook edit={editUltrabook} />
         <Table>
           <TableHead>
@@ -231,8 +224,8 @@ const AdminMain = () => {
         ) : 
         adminPanel === 'watches' ? (
           <>
-          <AddButton onClick={() => setOpenWatch(!openWatch)}><ButtonSpan>+</ButtonSpan></AddButton>
-          <AddWatch open={openWatch} />
+          <AddButton onClick={() => dispatch({type: 'OPEN_ADD_WATCH', payload: true})}><ButtonSpan>+</ButtonSpan></AddButton>
+          <AddWatch/>
           <EditWatch edit={editWatch} />
           <Table>
             <TableHead>
@@ -257,8 +250,8 @@ const AdminMain = () => {
         adminPanel === 'tablets' ?
         (
             <>
-            <AddButton onClick={() => setOpenTablet(!openTablet)}><ButtonSpan>+</ButtonSpan></AddButton>
-            <AddTablet open={openTablet} />
+            <AddButton onClick={() => dispatch({type: 'OPEN_ADD_TABLET', payload: true})}><ButtonSpan>+</ButtonSpan></AddButton>
+            <AddTablet />
             <EditTablet edit={editTablet} />
             <Table>
               <TableHead>
@@ -284,8 +277,8 @@ const AdminMain = () => {
         adminPanel === 'accessories' ?
         (
             <>
-            <AddButton onClick={() => setOpenAccessory(!openAccessory)}><ButtonSpan>+</ButtonSpan></AddButton>
-            <AddAccessory open={openAccessory} />
+            <AddButton onClick={() => dispatch({type: 'OPEN_ADD_ACCESSORY', payload: true})}><ButtonSpan>+</ButtonSpan></AddButton>
+            <AddAccessory />
             <EditAccessory edit={editAccessory} />
             <Table>
               <TableHead>

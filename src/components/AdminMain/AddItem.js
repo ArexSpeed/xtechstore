@@ -3,12 +3,13 @@ import FileBase from 'react-file-base64'
 
 import axios from 'axios'
 import {
-  AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton
+  AddItemContainer,FormAdd,FormRow, FormInput, FormLabel, FormButton, FormCancel
 } from "./AdminStyled";
+import {StateContext} from '../../StateProvider'
 
-
-function AddItem({ open }) {
-
+function AddItem() {
+  const [{openAddPhone}, dispatch] = useContext(StateContext)
+  
   const [item, setItem] = useState({
     series: '',
     model: '',
@@ -31,7 +32,7 @@ function AddItem({ open }) {
   
   return (
     <>
-      {open && (
+      {openAddPhone && (
         <AddItemContainer>
           <FormAdd autoComplete="off" onSubmit={sendItem}>
             <FormRow>
@@ -148,8 +149,10 @@ function AddItem({ open }) {
               <FormLabel htmlFor="img">Image:</FormLabel>
               <FileBase type="file" multiple={false} onDone={({base64}) => setItem({...item, img: base64})} />
             </FormRow>
-
+            <FormRow>
             <FormButton type="submit">Submit</FormButton>
+            <FormCancel onClick={() => dispatch({type: 'OPEN_ADD_PHONE', payload: false})}>Cancel</FormCancel>
+            </FormRow>
           </FormAdd>
         </AddItemContainer>
       )}
