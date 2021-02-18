@@ -10,6 +10,7 @@ function AddAccessory() {
   const [{openAddAccessory}, dispatch] = useContext(StateContext)
 
   const [item, setItem] = useState({
+    series: '',
     name: '',
     description: '',
     price: '',
@@ -26,6 +27,16 @@ function AddAccessory() {
       {openAddAccessory && (
         <AddItemContainer>
           <FormAdd onSubmit={sendItem}>
+            <FormRow>
+              <FormLabel htmlFor="name">Series:</FormLabel>
+              <FormInput
+                name="series"
+                type="text"
+                value={item.series}
+                onChange={(e) => setItem({ ...item, series: e.target.value })}
+              />
+            </FormRow>
+
             <FormRow>
               <FormLabel htmlFor="name">Name:</FormLabel>
               <FormInput

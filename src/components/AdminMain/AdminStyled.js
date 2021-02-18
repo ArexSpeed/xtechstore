@@ -90,7 +90,7 @@ export const TableImg = styled.img`
 export const AddItemContainer = styled.section`
   position: fixed;
   width: 500px;
-  height: auto;
+  max-height: 80vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);

@@ -34,12 +34,20 @@ useEffect(() => {
       <AddItemContainer>
         <FormAdd onSubmit={sendItem}>
             <FormRow>
+              <FormLabel htmlFor="series">Series:</FormLabel>
+              <FormInput
+                name="series"
+                type="text"
+                value={item.series}
+                onChange={(e) => setItem({ ...item, series: e.target.value })}
+              />
+            </FormRow>
+
+            <FormRow>
               <FormLabel htmlFor="name">Name:</FormLabel>
               <FormInput
                 name="name"
-                label="name"
                 type="text"
-                fullWith
                 value={item.name}
                 onChange={(e) => setItem({ ...item, name: e.target.value })}
               />
@@ -50,7 +58,6 @@ useEffect(() => {
               <FormInput
                 name="description"
                 type="text"
-                fullWith
                 value={item.description}
                 onChange={(e) => setItem({ ...item, description: e.target.value })}
               />
@@ -61,7 +68,6 @@ useEffect(() => {
               <FormInput
                 name="price"
                 type="text"
-                fullWith
                 value={item.price}
                 onChange={(e) => setItem({ ...item, price: e.target.value })}
               />

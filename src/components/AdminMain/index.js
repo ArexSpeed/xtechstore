@@ -122,6 +122,7 @@ const AdminMain = () => {
            WiFi: {watch.addons.wifi ? ' O ' : ' X '}
            WP: {watch.addons.waterproof ? ' O ' : ' X '}
       </td>
+      <td>{watch.fitness}</td>
       <td>{watch.price}</td>
       <td><TableImg src={watch.img} alt="watch" /></td>
       <td>
@@ -157,6 +158,7 @@ const AdminMain = () => {
 
   const showAccessories = adminAccessories.map((accessory, index) => (
     <TableRow key={index}>
+      <td>{accessory.series}</td>
       <td>{accessory.name}</td>
       <td>{accessory.description}</td>
       <td>{accessory.price}</td>
@@ -237,6 +239,7 @@ const AdminMain = () => {
               <td>Storage</td>
               <td>Size</td>
               <td>AddOns</td>
+              <td>Fitness</td>
               <td>Price</td>
               <td>Img</td>
               <td></td>
@@ -282,6 +285,7 @@ const AdminMain = () => {
             <EditAccessory edit={editAccessory} />
             <Table>
               <TableHead>
+                <td>Series</td>
                 <td>Name</td>
                 <td>Description</td>
                 <td>Price</td>

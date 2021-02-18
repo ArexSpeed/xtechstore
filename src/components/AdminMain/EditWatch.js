@@ -135,6 +135,17 @@ useEffect(() => {
        </FormRow>
 
        <FormRow>
+         <FormLabel htmlFor="size">Fitness:</FormLabel>
+         <FormInput
+           name="size"
+           type="text"
+           fullWith
+           value={item.fitness}
+           onChange={(e) => setItem({ ...item, fitness: e.target.value })}
+         />
+       </FormRow>
+
+       <FormRow>
          <FormLabel htmlFor="size">Size:</FormLabel>
          <FormInput
            name="size"

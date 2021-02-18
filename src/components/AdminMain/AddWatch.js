@@ -27,6 +27,7 @@ function AddWatch() {
       esim: false,
       waterproof: false
     },
+    fitness: '',
     size: '',
     battery: '',
     price: '',
@@ -140,6 +141,17 @@ function AddWatch() {
                 name="addons"
                 type="checkbox"
                 onChange={(e) => setItem({ ...item, addons: {...item.addons, waterproof: e.target.checked} })}
+              />
+            </FormRow>
+
+            <FormRow>
+              <FormLabel htmlFor="size">Fitness:</FormLabel>
+              <FormInput
+                name="fitness"
+                type="text"
+                fullWith
+                value={item.fitness}
+                onChange={(e) => setItem({ ...item, fitness: e.target.value })}
               />
             </FormRow>
 
