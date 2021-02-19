@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import {Link} from 'react-router-dom';
 import {
   Container,
   Content,
@@ -16,14 +17,12 @@ import {
   Tr,
   Td,
 } from "./XBookStyled";
-import { WaveUp, WaveDown } from "../SectionWave";
-import imgXphoneOne from "../../images/xphone2.jpg";
+
 import { xbooks } from "../data";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./style.css";
 function SectionBooks() {
-  const [hover, setHover] = useState(false);
   const [displayBookCardHover, setDisplayBookCardHover] = useState(-1);
   const [transition, setTransition] = useState(false);
 
@@ -44,7 +43,8 @@ function SectionBooks() {
     setTransition(false);
   };
 
-  const showBooks = xbooks.map((xbook, index) => (
+  const showBooks = xbooks.filter(xbook => xbook.id === 13 || xbook.id === 16 || xbook.id === 19 || xbook.id === 22)
+  .map((xbook, index) => (
     <BookCard
       data-aos={`${index % 2 === 0 ? "fade-right" : "fade-left"}`}
       onMouseEnter={() => showCardHover(index)}
@@ -57,7 +57,7 @@ function SectionBooks() {
         cardNo={index}
       >
         <BookDetails cardNo={index}>
-          <BookHoverTitle cardNo={index}>{xbook.name}</BookHoverTitle>
+          <BookHoverTitle cardNo={index}>{xbook.model}</BookHoverTitle>
           <Tr cardNo={index}>
             <Td>CPU:</Td>
             <Td>{xbook.cpu}</Td>
@@ -73,10 +73,6 @@ function SectionBooks() {
             <Td>{xbook.storage}</Td>
           </Tr>
           <Tr cardNo={index}>
-            <Td>Size:</Td>
-            <Td>{xbook.size}</Td>
-          </Tr>
-          <Tr cardNo={index}>
             <Td>Battery:</Td>
             <Td>{xbook.battery}</Td>
           </Tr>
@@ -84,13 +80,13 @@ function SectionBooks() {
             <Td>Price:</Td>
             <Td>{xbook.price}</Td>
           </Tr>
-          <BookButton cardNo={index}>Check more</BookButton>
+          <Link to={`/product/${xbook.id}`}> <BookButton cardNo={index}>Check more</BookButton></Link>
         </BookDetails>
       </BookCardHover>
-      <BookImg></BookImg>
+      <BookImg src={xbook.img} />
       <BookTitle>{xbook.name}</BookTitle>
       <BookDesc>
-        {xbook.size} / {xbook.ram} / {xbook.storage}
+        {xbook.size}" / {xbook.ram} / {xbook.storage}
       </BookDesc>
     </BookCard>
   ));

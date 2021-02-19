@@ -8,6 +8,10 @@ import aphonemini from '../imgs/phone3.png';
 import litephonemax from '../imgs/lite.png';
 import litephone from '../imgs/lite21mini.png';
 import litephonemini from '../imgs/litemini.png';
+import xbookpromax from '../imgs/xbookppro.png';
+import xbookpro from '../imgs/xbook3.png';
+import xbook from '../imgs/xbook2.png';
+import xbookgame from '../imgs/xbookg.png';
 import earpods from '../images/earpods.png';
 import headphone from '../images/headphone.png';
 import monitor from '../images/monitor.png';
@@ -33,44 +37,18 @@ export const phones = [
 ]
 
 
-export const xbooks = [
-  {
-    name: 'XBook Pro Max',
-    cpu: '16-cores X-Brain Pro',
-    ram: 'up to 64 GB',
-    storage: 'up to 2TB',
-    size: '16 inch',
-    battery: '12000 mAh',
-    price: ' from 2000$'
-  },
-  {
-    name: 'XBook Pro',
-    cpu: '16-cores X-Brain Pro',
-    ram: 'up to 32 GB',
-    storage: 'up to 1TB',
-    size: '13 inch',
-    battery: '10000 mAh',
-    price: 'from 1500$'
-  },
-  {
-    name: 'XBook ',
-    cpu: '12-cores X-Brain Pro',
-    ram: 'up to 32 GB',
-    storage: 'up to 1TB',
-    size: '15 inch',
-    battery: '10000 mAh',
-    price: 'from 1250$'
-  },
-  {
-    name: 'XBook Mini',
-    cpu: '12-cores X-Brain Pro',
-    ram: 'up to 16 GB',
-    storage: 'up to 512GB',
-    size: '13 inch',
-    battery: '8000 mAh',
-    price: 'from 800$'
-  },
-]
+export const xbooks = [{id: 13,series:"XBook",model:"XBook Pro Max",description:"The most powerfull ultrabook ever made",img: xbookpromax,cpu:"16-cores X-Brain Pro",ram:"64GB",storage:"2TB",camera:"4K",size:"16",battery:"15000mAh",price:"3500"},
+{id: 14,series:"XBook",model:"XBook Pro Max",description:"",img: xbookpromax,cpu:"16-cores X-Brain Pro",ram:"32GB",storage:"2TB",camera:"4K",size:"16",battery:"15000mAh",price:"3000"},
+{id: 15,series:"XBook",model:"XBook Pro Max",description:"",img: xbookpromax,cpu:"16-cores X-Brain Pro",ram:"16GB",storage:"1TB",camera:"4K",size:"16",battery:"15000mAh",price:"2500"},
+{id: 16,series:"XBook",model:"XBook Pro",description:"",img: xbookpro,cpu:"12-cores X-Brain Pro",ram:"32GB",storage:"1TB",camera:"2K",size:"14",battery:"10000mAh",price:"2000"},
+{id: 17,series:"XBook",model:"XBook Pro",description:"",img: xbookpro,cpu:"12-cores X-Brain Pro",ram:"16GB",storage:"1TB",camera:"2K",size:"14",battery:"10000mAh",price:"1750"},
+{id: 18,series:"XBook",model:"XBook Pro",description:"",img: xbookpro,cpu:"12-cores X-Brain Pro",ram:"16GB",storage:"512GB",camera:"2K",size:"14",battery:"10000mAh",price:"1500"},
+{id: 19,series:"XBook",model:"XBook Game",description:"",img: xbookgame,cpu:"16-cores X-Brain",ram:"32GB",storage:"512GB",camera:"HD",size:"15",battery:"8000mAh",price:"1500"},
+{id: 20,series:"XBook",model:"XBook Game",description:"",img: xbookgame,cpu:"16-cores X-Brain",ram:"16GB",storage:"512GB",camera:"HD",size:"15",battery:"8000mAh",price:"1250"},
+{id: 21,series:"XBook",model:"XBook Game",description:"",img: xbookgame,cpu:"16-cores X-Brain",ram:"16GB",storage:"256GB",camera:"HD",size:"15",battery:"8000mAh",price:"1000"},
+{id: 22,series:"XBook ",model:"XBook Mini",description:"",img: xbook,cpu:"12-cores X-Brain",ram:"16GB",storage:"256GB",camera:"HD",size:"13",battery:"6000mAh",price:"800"},
+{id: 23,series:"XBook",model:"XBook Mini",description:"",img: xbook,cpu:"12-cores X-Brain",ram:"16GB",storage:"128GB",camera:"HD",size:"13",battery:"6000mAh",price:"700"},
+{id: 24,series:"XBook",model:"XBook Mini",description:"",img: xbook,cpu:"12-cores X-Brain",ram:"8GB",storage:"128GB",camera:"HD",size:"13",battery:"6000mAh",price:"600"}]
 
 export const watches = [
   {

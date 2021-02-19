@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
-import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 import {
   Nav,

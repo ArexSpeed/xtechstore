@@ -2,12 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Content, H1, P, Ul, Li, PhoneBoxes, PhonesShow, PhoneBox, PhoneImage, PhoneName, SectionDesc, DescDetails, DescImage, DescPhoneName, Table, Tr, Td, Button} from './PhonesStyled';
 import {phones} from '../data';
-import imgXphoneOne from '../../images/xphone2.jpg';
 
 function SectionPhones() {
-  const [hover, setHover] = useState(false);
   const [showPhoneSeries, setShowPhoneSeries] = useState('Pro Series');
-  const [activePhoneSeries, setActivePhoneSeries] = useState('');
   const [showPhoneModel, setShowPhoneModel] = useState('Pro 21 Max');
   const [boxClass, setBoxClass] = useState(false);
   const handleShowPhoneSeries = (e) => {
