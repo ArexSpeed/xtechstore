@@ -24,9 +24,9 @@ export const phones = [
   {id:4,series:"A Series",model:"A 21 Max",description:"",img: aphonemax,cpu:"8-cores X-Brain",ram:"8GB",storage:"512GB",camera:"64MPx",size:"6,5",battery:"5000mAh",price:"1000"},
   {id:5,series:"A Series",model:"A 21",description:"",img: aphone,cpu:"8-cores X-Brain",ram:"8GB",storage:"256GB",camera:"64MPx",size:"6,0",battery:"4500mAh",price:"800"},
   {id:6,series:"A Series",model:"A 21 Mini",description: "",img: aphonemini,cpu:"6-cores X-Brain",ram:"8GB",storage:"256GB",camera:"64MPx",size:"5,0",battery:"3500mAh",price:"600"},
-  {id:7,series:"Game Series",model:"G21 Max",description:"",img: gphone,cpu:"12-cores X-BrainG",ram:"12GB",storage:"512GB",camera:"64MPx",size:"7,5",battery:"6000mAh",price:"1200"},
-  {id:8,series:"Game Series",model:"G21 Pro",description:"",img: gphone,cpu:"10-cores X-BrainG",ram:"12GB",storage:"512GB",camera:"64MPx",size:"7,0",battery:"6000mAh",price:"1000"},
-  {id:9,series:"Game Series",model:"G21",description:"",img: gphone,cpu:"8-cores X-BrainG",ram:"8GB",storage:"256GB",camera:"64MPx",size:"7,0",battery:"5500mAh",price:"800"},
+  {id:7,series:"Game Series",model:"G 21 Max",description:"",img: gphone,cpu:"12-cores X-BrainG",ram:"12GB",storage:"512GB",camera:"64MPx",size:"7,5",battery:"6000mAh",price:"1200"},
+  {id:8,series:"Game Series",model:"G 21",description:"",img: gphone,cpu:"10-cores X-BrainG",ram:"12GB",storage:"512GB",camera:"64MPx",size:"7,0",battery:"6000mAh",price:"1000"},
+  {id:9,series:"Game Series",model:"G 21 Mini",description:"",img: gphone,cpu:"8-cores X-BrainG",ram:"8GB",storage:"256GB",camera:"64MPx",size:"6,0",battery:"5500mAh",price:"800"},
   {id:10,series:"Lite Series",model:"Lite 21 Max",description:"",img: litephonemax,cpu:"6-cores X-Brain",ram:"6GB",storage:"256GB",camera:"32MPx",size:"6,5",battery:"3500mAh",price:"600"},
   {id:11,series:"Lite Series",model:"Lite 21",description:"",img: litephone,cpu:"6-cores X-Brain",ram:"6GB",storage:"128GB",camera:"32MPx",size:"6,0",battery:"3000mAh",price:"500"},
   {id:12,series:"Lite Series",model:"Lite 21 Mini",description:"",img: litephonemini,cpu:"6-cores X-Brain",ram:"4GB",storage:"128GB",camera:"32MPx",size:"5,0",battery:"3000mAh",price:"400"}

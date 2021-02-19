@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import {Container, Content, H1, P, Ul, Li, PhoneBoxes, PhonesShow, PhoneBox, PhoneImage, PhoneName, SectionDesc, DescDetails, DescImage, DescPhoneName, Table, Tr, Td, Button} from './PhonesStyled';
 import {phones} from '../data';
 import imgXphoneOne from '../../images/xphone2.jpg';
@@ -12,8 +13,10 @@ function SectionPhones() {
   const handleShowPhoneSeries = (e) => {
     let seriesName = e.target.textContent;
     setShowPhoneSeries(seriesName);
-    //console.log(seriesName.split(' ').slice(0,1));
+    console.log(seriesName.split(' ').slice(0,1));
     let modelName = seriesName.split(' ').slice(0,1);
+
+    if(modelName[0] === 'Game') modelName[0] = 'G'
     setShowPhoneModel(`${modelName} 21`);
   }
   useEffect(
@@ -23,24 +26,12 @@ function SectionPhones() {
     [showPhoneModel],
   );
 
-  const rotateBox = (e) => {
-    console.log('hello');
-    console.log(e)
-    e.target.classList.add('rotate');
-     //e.target.style.transform = 'rotateY(360deg)';
-     //e.target.style.transition = 'all 0.3s ease-in';
-  }
+
   //with error on image click
   //const handleShowPhoneModelE = (e) => setShowPhoneModel(e.target.lastChild.textContent)
   //Set model to rotate details
   const handleShowPhoneModel = (model) => {
     setShowPhoneModel(model)
-    //rotateBox(model)
-    
-    //setBoxClass(model);
-    //console.log(boxClass);
-
-
   }
 
   const showBoxes =  phones
@@ -97,9 +88,11 @@ function SectionPhones() {
         <Td>{phone.price}</Td>
       </Tr>
     </Table>
+    <Link to={`/product/${phone.id}`}>
     <Button>
-      Go to store
+      Go to product
     </Button>
+    </Link>
     </DescDetails>
     </>
   ))
@@ -123,8 +116,8 @@ function SectionPhones() {
         <Li onClick={handleShowPhoneSeries} className={showPhoneSeries=== 'Game Series' ? 'active' : ''}>
           Game Series
         </Li>
-        <Li>
-          Mini Series
+        <Li onClick={handleShowPhoneSeries} className={showPhoneSeries=== 'Lite Series' ? 'active' : ''}>
+          Lite Series
         </Li>
       </Ul>
       <PhonesShow>
