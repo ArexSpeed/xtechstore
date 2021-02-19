@@ -100,8 +100,8 @@ export const TabletCard = styled.div`
   }
 `
 export const TabletImg = styled.img`
-  width: 80%;
-  height: 70%;
+  max-width: 80%;
+  max-height: 70%;
 `
 export const TabletTitle = styled.h3`
   font-size: 30px;

@@ -32,7 +32,6 @@ export const ShopBoxSection = styled.section`
   width: 100%;
   display: flex;
   flex-direction: row;
-
   transform: translateY(-150px);
 `;
 export const ShopBoxTitle = styled.article`
@@ -111,7 +110,8 @@ export const ShopBox = styled.article`
 `;
 export const ShopBoxImg = styled.img`
   max-height: 150px;
-  top: 15%;
+  max-width: 150px;
+  margin-top: 15%;
   z-index: 2;
 `;
 export const ShopBoxName = styled.h3`
