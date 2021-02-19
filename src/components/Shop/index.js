@@ -107,7 +107,7 @@ function Shop() {
         </ShopBanner>
 
         <ShopSection>
-        <ShopBoxSection>
+        <ShopBoxSection id="phones">
           <ShopBoxTitle>
             <h3>Phones</h3>{" "}
           </ShopBoxTitle>
@@ -115,25 +115,25 @@ function Shop() {
             {showPhoneBox}
           </ShopBoxes>
         </ShopBoxSection>
-        <ShopBoxSection>
+        <ShopBoxSection id="ultrabooks">
           <ShopBoxTitle> <h3>Ultrabooks</h3></ShopBoxTitle>
           <ShopBoxes>
             {showXBooksBox}
           </ShopBoxes>
         </ShopBoxSection>
-        <ShopBoxSection>
-          <ShopBoxTitle> <h3>Tablets</h3></ShopBoxTitle>
-          <ShopBoxes>
-            {showTabletsBox}
-          </ShopBoxes>
-        </ShopBoxSection>
-        <ShopBoxSection>
+        <ShopBoxSection id="watches">
           <ShopBoxTitle> <h3>Watches</h3></ShopBoxTitle>
           <ShopBoxes>
             {showWatchesBox}
           </ShopBoxes>
         </ShopBoxSection>
-        <ShopBoxSection>
+        <ShopBoxSection id="tablets">
+          <ShopBoxTitle> <h3>Tablets</h3></ShopBoxTitle>
+          <ShopBoxes>
+            {showTabletsBox}
+          </ShopBoxes>
+        </ShopBoxSection>
+        <ShopBoxSection id="accessories">
           <ShopBoxTitle> <h3>Accessories</h3></ShopBoxTitle>
           <ShopBoxes>
             {showAccessoriesBox}
