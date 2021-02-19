@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
-import {Container, Content, H1, P, WatchContainer, WatchDetails, WatchImage, WatchName, WatchDesc, WatchP} from './WatchesStyled';
-
-import imgXphoneOne from '../../images/xphone2.jpg';
+import {Container, Content, H1, P, WatchContainer, WatchDetails, WatchImage, WatchName, WatchDesc, WatchP, WatchButton} from './WatchesStyled';
+import {Link} from 'react-router-dom';
 import {watches} from '../data';
 import Coverflow from 'react-coverflow';
 import { StyleRoot } from 'radium';
@@ -14,23 +13,29 @@ function SectionWatches() {
   const handleWatchDetails = (model) => {
     setWatchModel(model)
   }
+
+
   const showWatchDetails = watches
-  .filter(watch => watch.name === watchModel)
+  .filter(watch => watch.model === watchModel)
   .map((watch,index) => (
     <WatchContainer key={index}>
-    <WatchImage  />
+    <WatchImage src={watch.img}  />
     <WatchDetails>
-    <WatchName>{watch.name}</WatchName>
-    <WatchDesc>{watch.desc}</WatchDesc>
+    <WatchName>{watch.model}</WatchName>
+    <WatchDesc>{watch.description}</WatchDesc>
       <WatchP>Battery: {watch.battery}</WatchP>
       <WatchP>storage: {watch.storage}</WatchP>
       <WatchP>size: {watch.size}</WatchP>
-      <WatchP>Gps: {watch.gps ? <span>&#10003;</span> : 	<span>&times;</span>}</WatchP>
-      <WatchP>Health Care: {watch.healthcare ? <span>&#10003;</span> : <span>&times;</span>}</WatchP>
-      <WatchP>Fitness Tracker: {watch.fitness}</WatchP>
-      <WatchP>Esim: {watch.esim ? <span>&#10003;</span> : <span>&times;</span>}</WatchP>
-      <WatchP>Water Proof: {watch.water ? <span>&#10003;</span> : <span>&times;</span>}</WatchP>
+      <WatchP>Fitness Tracker: {watch.fitness} sports</WatchP>
+      <WatchP>Gps: {watch.addons.gps ? <span>&#10003;</span> : 	<span>&times;</span>}</WatchP>
+      <WatchP>Health Care: {watch.addons.healthcare ? <span>&#10003;</span> : <span>&times;</span>}</WatchP>
+      <WatchP>WiFi: {watch.addons.wifi ? <span>&#10003;</span> : <span>&times;</span>}</WatchP>
+      <WatchP>Esim: {watch.addons.esim ? <span>&#10003;</span> : <span>&times;</span>}</WatchP>
+      <WatchP>Waterproof: {watch.addons.waterproof ? <span>&#10003;</span> : <span>&times;</span>}</WatchP>
       <WatchP>Price: {watch.price}</WatchP>
+      <Link to={`/product/${watch.id}`}>
+        <WatchButton>Check</WatchButton>
+      </Link>
       
     </WatchDetails>
     </WatchContainer>
@@ -47,6 +52,7 @@ function SectionWatches() {
           Check our smartphones from budget level if you need basic usage to most advanced devices in the market
         </P>
         <StyleRoot>
+          
         <Coverflow width="1000" height="500"
     displayQuantityOfSide={2}
     navigation={false}
@@ -69,11 +75,11 @@ function SectionWatches() {
     }}
   >
 
-    <img src={imgXphoneOne} alt='XWatch Gold' onClick={() => handleWatchDetails('XWatch Gold')}/>
-    <img src={imgXphoneOne} alt='XWatch Pro' onClick={() => handleWatchDetails('XWatch Pro')}/>
-    <img src={imgXphoneOne} alt='XWatch Lite' onClick={() => handleWatchDetails('XWatch Lite')}/>
-    <img src={imgXphoneOne} alt='XBand Pro' onClick={() => handleWatchDetails('XBand Pro')} />
-    <img src={imgXphoneOne} alt='XBand Lite' onClick={() => handleWatchDetails('XBand Lite')} />
+    <img src={watches[1].img} alt='XWatch Gold' onClick={() => handleWatchDetails('XWatch Gold')}/>
+    <img src={watches[2].img} alt='XWatch Pro' onClick={() => handleWatchDetails('XWatch Pro')}/>
+    <img src={watches[0].img} alt='XWatch Lite' onClick={() => handleWatchDetails('XWatch Lite')}/>
+    <img src={watches[3].img} alt='XBand Pro' onClick={() => handleWatchDetails('XBand Pro')} />
+    <img src={watches[4].img} alt='XBand Lite' onClick={() => handleWatchDetails('XBand Lite')} />
   </Coverflow>
   </StyleRoot>
   {showWatchDetails}

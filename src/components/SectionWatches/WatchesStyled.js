@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {MdKeyboardArrowRight, MdArrowForward} from 'react-icons/md'
 import * as style from '../StyleVariables';
 
 export const Container = styled.div`
@@ -88,4 +87,34 @@ export const WatchDesc = styled.p`
 export const WatchP = styled.p`
   font-size: 16px;
   padding: 3px 10px;
+`
+export const WatchButton = styled.button`
+  border-radius: 50px;
+  padding: 10px 40px;
+  margin: 10px;
+  border: 2px groove ${style.primaryColor};
+  background: ${style.secondaryColor};
+  color: ${style.primaryColor};
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+  &:before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: ${style.primaryColor};
+    transition: all 1s;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  &:hover::before{
+    width: 100%;
+  }
+  &:hover{
+    color: ${style.secondaryColor}
+  }
 `

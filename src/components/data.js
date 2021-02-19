@@ -12,6 +12,11 @@ import xbookpromax from '../imgs/xbookppro.png';
 import xbookpro from '../imgs/xbook3.png';
 import xbook from '../imgs/xbook2.png';
 import xbookgame from '../imgs/xbookg.png';
+import xwatchgold from '../imgs/xwatchgold.png';
+import xwatchpro from '../imgs/xwatxhpro.png';
+import xwatchlite from '../imgs/xwatchmini.png';
+import xbandpro from '../imgs/xbandpro.png';
+import xbandlite from '../imgs/xbandlite.png';
 import earpods from '../images/earpods.png';
 import headphone from '../images/headphone.png';
 import monitor from '../images/monitor.png';
@@ -37,7 +42,8 @@ export const phones = [
 ]
 
 
-export const xbooks = [{id: 13,series:"XBook",model:"XBook Pro Max",description:"The most powerfull ultrabook ever made",img: xbookpromax,cpu:"16-cores X-Brain Pro",ram:"64GB",storage:"2TB",camera:"4K",size:"16",battery:"15000mAh",price:"3500"},
+export const xbooks = [
+{id: 13,series:"XBook",model:"XBook Pro Max",description:"The most powerfull ultrabook ever made",img: xbookpromax,cpu:"16-cores X-Brain Pro",ram:"64GB",storage:"2TB",camera:"4K",size:"16",battery:"15000mAh",price:"3500"},
 {id: 14,series:"XBook",model:"XBook Pro Max",description:"",img: xbookpromax,cpu:"16-cores X-Brain Pro",ram:"32GB",storage:"2TB",camera:"4K",size:"16",battery:"15000mAh",price:"3000"},
 {id: 15,series:"XBook",model:"XBook Pro Max",description:"",img: xbookpromax,cpu:"16-cores X-Brain Pro",ram:"16GB",storage:"1TB",camera:"4K",size:"16",battery:"15000mAh",price:"2500"},
 {id: 16,series:"XBook",model:"XBook Pro",description:"",img: xbookpro,cpu:"12-cores X-Brain Pro",ram:"32GB",storage:"1TB",camera:"2K",size:"14",battery:"10000mAh",price:"2000"},
@@ -51,6 +57,13 @@ export const xbooks = [{id: 13,series:"XBook",model:"XBook Pro Max",description:
 {id: 24,series:"XBook",model:"XBook Mini",description:"",img: xbook,cpu:"12-cores X-Brain",ram:"8GB",storage:"128GB",camera:"HD",size:"13",battery:"6000mAh",price:"600"}]
 
 export const watches = [
+{addons:{gps:true,wifi:true,healthcare:true,esim:false,waterproof:false},id: 25,series:"XWatch",model:"XWatch Lite",description:"XWatch Lite is made for the less demanding. Awesome look but if you do not need esim and water resistant this option is for you. XWatch Life has 16GB storage and you can forget about charging for 2 weeks.",img: xwatchlite,cpu:"4-cores X-Brain",ram:"2GB",storage:"16GB",fitness:"50",size:"1,5",battery:"1500mAh",price:"250"},
+{addons:{gps:true,wifi:true,healthcare:true,esim:true,waterproof:true},id: 26,series:"XWatch",model:"XWatch Gold",description:"Smartwatch for demanding customers. XWatch Gold is ideal if you want a business smartwatch with georgeus look, the most advanced health track and outstanding battery life up to one month without charging.",img: xwatchgold,cpu:"6-cores X-Brain",ram:"4GB",storage:"32GB",fitness:"150",size:"1,6",battery:"2000mAh",price:"700"},
+{addons:{gps:true,wifi:true,healthcare:true,esim:true,waterproof:true},id: 27,series:"XWatch",model:"XWatch Pro",description:"Pro Model is both for sport activity and for daily use. Thanks esim integrated you can forget about your smartphone. XWatch Pro has impossible long battery life and 64GB storage for your music and files.",img: xwatchpro,cpu:"6-cores X-Brain",ram:"3GB",storage:"32GB",fitness:"100",size:"1,5",battery:"2000mAh",price:"500"},
+{addons:{gps:true,wifi:true,healthcare:true,esim:true,waterproof:true},id: 28,series:"XBand",model:"XBand Pro",description:"The best option for active person and who wants to use for sport training and daily tasks. XBand Pro is a sport smartband with amazing features and also you can add your esim and forget about phone durning your fitness time",img: xbandpro,cpu:"2-cores X-Brain",ram:"2GB",storage:"32GB",fitness:"100",size:"1,1",battery:"1500mAh",price:"350"},
+{addons:{gps:true,wifi:false,healthcare:false,esim:false,waterproof:false},id: 29,series:"XBand",model:"XBand Lite",description:"The cheapest version for active person who wants to track their fitness activity and progress. XBand Lite has 8GB storage for your favourite music to listen durning your training.",img:xbandlite,cpu:"2-cores X-Brain",ram:"1GB",storage:"8GB",fitness:"50",size:"0,7",battery:"1500mAh",price:"150"}]
+
+export const oldwatches = [
   {
     name: 'XWatch Gold',
     desc: 'Smartwatch for demanding customers. XWatch Gold is ideal if you want a business smartwatch with georgeus look, the most advanced health track and outstanding battery life up to one month without charging.',
