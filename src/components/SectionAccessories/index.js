@@ -1,24 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
-import {Container, Content, H1, P, AccessoriesSection, AccessoriesBox, AccessoriesName, AccessoriesImg } from './AccessoriesStyled';
-import xtabpro from '../../images/xtabpro.jpg'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import {Container, Content, H1, P, AccessoriesSection, AccessoriesBox, AccessoriesName, AccessoriesImg} from './AccessoriesStyled';
 import {accessories} from '../data';
 import './grid.css';
 
 function SectionAccessories() {
-  const [hover, setHover] = useState(false);
-  const [displayBookCardHover, setDisplayBookCardHover] = useState(-1);
-
-  const gridAreas = [
-    "1 / 3 / 2 / 4", "1 / 2 / 3 / 3", "1 / 1 / 2 / 2", "2 / 1 / 4 / 2", "3 / 2 / 4 / 3", "2 / 3 / 3 / 4", "3 / 3 / 4 / 4"
-  ]
-  //style={{gridArea: gridAreas[index]}}
 
   const showAccessories = accessories.map((accessory, index) => (
     <AccessoriesBox index={index} className={`gridarea-${index}`}>
           <AccessoriesName>
-                {accessory.name}
+                {accessory.model}
           </AccessoriesName>
-          <AccessoriesImg src={accessory.img}/>
+          <Link to={`/product/${accessory.id}`} style={{display: 'flex', justifyContent: 'center'}}>
+            <AccessoriesImg src={accessory.img}/>
+          </Link>
         </AccessoriesBox>
   ))
   return (

@@ -15,7 +15,6 @@ export const Container = styled.div`
 
 `
 
-
 export const Content = styled.div`
   z-index: 3;
   max-width: 1200px;
@@ -103,8 +102,6 @@ export const TabletCard = styled.div`
 export const TabletImg = styled.img`
   width: 80%;
   height: 70%;
-  background: #555;
-  border-radius: 50%;
 `
 export const TabletTitle = styled.h3`
   font-size: 30px;
@@ -113,7 +110,6 @@ export const TabletTitle = styled.h3`
 export const TabletDesc = styled.h5`
   font-size: 20px;
 `
-
 
 export const TabletDetails = styled.div`
   display: flex;

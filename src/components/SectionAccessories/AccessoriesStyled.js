@@ -14,7 +14,6 @@ export const Container = styled.div`
 
 `
 
-
 export const Content = styled.div`
   z-index: 3;
   max-width: 1200px;
@@ -61,6 +60,7 @@ export const AccessoriesSection = styled.section`
   }
 
 `
+
 export const AccessoriesImg = styled.img`
   max-width: 80%;
   transition: all 0.5s ease-in;

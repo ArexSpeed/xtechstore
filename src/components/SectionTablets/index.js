@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import {Container, Content, H1, P, TabletsSection, TabletCard, TabletImg, TabletTitle,TabletDesc,  TabletDetails, TabletButton } from './TabletsStyled';
-import {WaveUp, WaveDown} from '../SectionWave';
-import xtabpro from '../../images/xtabpro.jpg'
-import {xbooks} from '../data';
+import {tablets} from '../data';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 function SectionTablets() {
-  const [hover, setHover] = useState(false);
   const [displayBookCardHover, setDisplayBookCardHover] = useState(-1);
 
   useEffect(() => {
@@ -26,55 +24,39 @@ function SectionTablets() {
     setDisplayBookCardHover(-1);
   }
 
+  const showTablet = tablets.filter(tablet => tablet.id === 30 || tablet.id === 33 || tablet.id === 36)
+  .map((tablet, index) => (
+    <TabletCard cardNo={index} key={index}>
+          <TabletImg src={tablet.img} />
+          <TabletDesc>
+                <TabletTitle>{tablet.model}</TabletTitle>
+                <TabletDetails cardNo={index}>{tablet.ram}/ {tablet.storage} Storage / {tablet.size} inch</TabletDetails>
+          </TabletDesc>
+          <Link to={`/product/${tablet.id}`}>
+          <TabletButton>
+            Check More
+          </TabletButton>
+          </Link>
+        </TabletCard>
+  ))
+
 
   return (
 
  <>
-<Container id='tablets'>
-   <Content>
-        <H1>Comfort work even in travel.</H1>
-        <P>
-          Create awesome things also in travel with powerful XTab.
-        </P>
-      <TabletsSection>
-        <TabletCard cardNo={0}>
-          <TabletImg src={xtabpro}></TabletImg>
-          <TabletDesc>
-                <TabletTitle>XTab Pro</TabletTitle>
-                <TabletDetails cardNo={0}>16GB RAM/ 512GB Storage / 15 inch</TabletDetails>
-          </TabletDesc>
-          <TabletButton>
-            Check More
-          </TabletButton>
-        </TabletCard>
-
-        <TabletCard cardNo={1}>
-          <TabletImg src={xtabpro}></TabletImg>
-          <TabletDesc>
-                <TabletTitle>XTab </TabletTitle>
-                <TabletDetails cardNo={1}>16GB RAM/ 256GB Storage / 13 inch</TabletDetails>
-          </TabletDesc>
-          <TabletButton>
-            Check More
-          </TabletButton>
-        </TabletCard>
-
-        <TabletCard cardNo={2}>
-          <TabletImg src={xtabpro}></TabletImg>
-          <TabletDesc>
-                <TabletTitle>XTab Lite</TabletTitle>
-                <TabletDetails cardNo={2}>8GB RAM/ 128GB Storage / 10 inch</TabletDetails>
-          </TabletDesc>
-          <TabletButton>
-            Check More
-          </TabletButton>
-        </TabletCard>
-       
-       
-      </TabletsSection>
-      
+  <Container id='tablets'>
+    <Content>
+          <H1>Comfort work even in travel.</H1>
+          <P>
+            Create awesome things also in travel with powerful XTab.
+          </P>
+        <TabletsSection>
+          {showTablet} 
+        
+        </TabletsSection>
+        
       </Content>
-      </Container>
+  </Container>
 
 </>
 

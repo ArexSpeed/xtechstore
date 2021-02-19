@@ -17,6 +17,10 @@ import xwatchpro from '../imgs/xwatxhpro.png';
 import xwatchlite from '../imgs/xwatchmini.png';
 import xbandpro from '../imgs/xbandpro.png';
 import xbandlite from '../imgs/xbandlite.png';
+import xtabflex from '../imgs/Xtabfold.png';
+import xtabpro from '../imgs/xtabpro2.png';
+import xtablite from '../imgs/xtabmii.png';
+
 import earpods from '../images/earpods.png';
 import headphone from '../images/headphone.png';
 import monitor from '../images/monitor.png';
@@ -63,101 +67,22 @@ export const watches = [
 {addons:{gps:true,wifi:true,healthcare:true,esim:true,waterproof:true},id: 28,series:"XBand",model:"XBand Pro",description:"The best option for active person and who wants to use for sport training and daily tasks. XBand Pro is a sport smartband with amazing features and also you can add your esim and forget about phone durning your fitness time",img: xbandpro,cpu:"2-cores X-Brain",ram:"2GB",storage:"32GB",fitness:"100",size:"1,1",battery:"1500mAh",price:"350"},
 {addons:{gps:true,wifi:false,healthcare:false,esim:false,waterproof:false},id: 29,series:"XBand",model:"XBand Lite",description:"The cheapest version for active person who wants to track their fitness activity and progress. XBand Lite has 8GB storage for your favourite music to listen durning your training.",img:xbandlite,cpu:"2-cores X-Brain",ram:"1GB",storage:"8GB",fitness:"50",size:"0,7",battery:"1500mAh",price:"150"}]
 
-export const oldwatches = [
-  {
-    name: 'XWatch Gold',
-    desc: 'Smartwatch for demanding customers. XWatch Gold is ideal if you want a business smartwatch with georgeus look, the most advanced health track and outstanding battery life up to one month without charging.',
-    battery: 'up to 30 days',
-    storage: '64GB',
-    size: '1,5 inch',
-    gps: true,
-    healthcare: true,
-    fitness: '100 sports',
-    esim: true,
-    water: true,
-    price: '550$'
-  },
-  {
-    name: 'XWatch Pro',
-    desc: 'Pro Model is both for sport activity and for daily use. Thanks esim integrated you can forget about your smartphone. XWatch Pro has impossible long battery life and 64GB storage for your music and files.  ',
-    battery: 'up to 25 days',
-    storage: '64GB',
-    size: '1,5 inch',
-    gps: true,
-    healthcare: true,
-    fitness: '100 sports',
-    esim: true,
-    water: true,
-    price: '450$'
-  },
-  {
-    name: 'XWatch Lite',
-    desc: 'XWatch Lite is made for the less demanding. Awesome look but if you do not need esim and water resistant this option is for you. XWatch Life has 16GB storage and you can forget about charging for 2 weeks.',
-    battery: 'up to 14 days',
-    storage: '16GB',
-    size: '1,5 inch',
-    gps: true,
-    healthcare: true,
-    fitness: '50 sports',
-    esim: false,
-    water: false,
-    price: '250$'
-  },
-  {
-    name: 'XBand Pro',
-    desc: 'The best option for active person and who wants to use for sport training and daily tasks. XBand Pro is a sport smartband with amazing features and also you can add your esim and forget about phone durning your fitness time',
-    battery: 'up to 30 days',
-    storage: '32GB',
-    size: '1,1 inch',
-    gps: true,
-    healthcare: true,
-    fitness: '100 sports',
-    esim: true,
-    water: true,
-    price: '300$'
-  },
-  {
-    name: 'XBand Lite',
-    desc: 'The cheapest version for active person who wants to track their fitness activity and progress. XBand Lite has 8GB storage for your favourite music to listen durning your training.',
-    battery: 'up to 20 days',
-    storage: '8GB',
-    size: '1,0 inch',
-    gps: false,
-    healthcare: true,
-    fitness: '50 sports',
-    esim: false,
-    water: false,
-    price: '100$'
-  },
-]
+export const tablets = [
+{id:30,series:"XTab",model:"XTab Flex",description:"The most advanced Tablet ever made. Pro version with flexible display can give you amazing work experience. You can use it like you want. Mobile tech never was so comfortable.",img: xtabflex,cpu:"12-cores X-Brain",ram:"16GB",storage:"1TB",camera:"108MPx",size:"15",battery:"8000mAh",price:"2000"},
+{id:31,series:"XTab",model:"XTab Flex",description:"The most advanced Tablet ever made. Pro version with flexible display can give you amazing work experience. You can use it like you want. Mobile tech never was so comfortable.",img: xtabflex,cpu:"12-cores X-Brain",ram:"16GB",storage:"512GB",camera:"108MPx",size:"15",battery:"8000mAh",price:"1750"},
+{id:32,series:"XTab",model:"XTab Flex",description:"The most advanced Tablet ever made. Pro version with flexible display can give you amazing work experience. You can use it like you want. Mobile tech never was so comfortable.",img: xtabflex,cpu:"12-cores X-Brain",ram:"12GB",storage:"256GB",camera:"108MPx",size:"15",battery:"8000mAh",price:"1500"},
+{id:33,series:"XTab",model:"XTab Pro",description:"Well known to know look in tablet. The best option for architects, cartoonist and graphic designers. ",img: xtabpro,cpu:"8-cores X-Brain",ram:"12GB",storage:"512GB",camera:"108MPx",size:"13",battery:"6000mAh",price:"1500"},
+{id:34,series:"XTab",model:"XTab Pro",description:"Well known to know look in tablet. The best option for architects, cartoonist and graphic designers.",img: xtabpro,cpu:"8-cores X-Brain",ram:"12GB",storage:"256GB",camera:"108MPx",size:"13",battery:"6000mAh",price:"1250"},
+{id:35,series:"XTab",model:"XTab Pro",description:"Well known to know look in tablet. The best option for architects, cartoonist and graphic designers.",img: xtabpro,cpu:"8-cores X-Brain",ram:"8GB",storage:"128GB",camera:"108MPx",size:"13",battery:"6000mAh",price:"1000"},
+{id:36,series:"XTab",model:"XTab Lite",description:"With XTab Lite you have fun, amazing experiences from movies, organize all your task and easy connect to big screen.",img: xtablite,cpu:"6-cores X-Brain",ram:"6GB",storage:"256GB",camera:"64MPx",size:"10",battery:"5000mAh",price:"1000"},
+{id:37,series:"XTab",model:"XTab Lite",description:"With XTab Lite you have fun, amazing experiences from movies, organize all your task and easy connect to big screen.",img: xtablite,cpu:"6-cores X-Brain",ram:"6GB",storage:"128GB",camera:"64MPx",size:"10",battery:"5000mAh",price:"750"},
+{id:38,series:"XTab",model:"XTab Lite",description:"With XTab Lite you have fun, amazing experiences from movies, organize all your task and easy connect to big screen.",img: xtablite,cpu:"6-cores X-Brain",ram:"4GB",storage:"128GB",camera:"64MPx",size:"10",battery:"5000mAh",price:"500"}]
 
 export const accessories = [
-  {
-    name: 'Keyboard',
-    img: keyboard
-  },
-  {
-    name: 'Earpods',
-    img: earpods,
-  },
-  {
-    name: 'Mouse',
-    img: mouse,
-  },
-  {
-    name: 'Headphones',
-    img: headphone,
-  },
-  {
-    name: 'Powerbank',
-    img: powerbank
-  },
-  {
-    name: 'Soundbars',
-    img: soundbar
-  },
-  {
-    name: 'Monitor',
-    img: monitor
-  },
-]
+  {id:39,series:"Accessories",model:"Xboard",description:"Very comfortable, connect with 3 devices",price:"500",img: keyboard},
+  {id:40,series:"Accessories",model:"XMouse",description:"Fast, very precise mouse for everyone. Thanks to smart-connect function you can work on 3 devices at one time",price:"500",img: mouse},
+  {id:41,series:"Accessories",model:"XHead",description:"Listen to every detail of you favorite music. Thanks this headphones you will go to another level of sound feeling.",price:"500",img: headphone},
+  {id:42,series:"Accessories",model:"XPods",description:"Amazing pods, comfortable, waterproof ",price:"300",img: earpods},
+  {id:43,series:"Accessories",model:"XPower",description:"Charge your devices wherever you are. XPower has 20000mAh that is enought to charge your devices a couple times. You can charge even 5 devices simultaneously ",price:"150",img: powerbank},
+  {id:44,series:"Accessories",model:"XBar",description:"Watch your favorite movies and feel the sound like in cinema. Soundbar brings to you amazing experience of sound comparable to best theaters effect ",price:"400",img: soundbar},
+  {id:45,series:"Accessories",model:"XMonitor",description:"4K Display 32 inch big, eyecare, this monitor will replace your current. ",price:"500",img: monitor}]

@@ -43,52 +43,69 @@ function SectionWatches() {
 
   
   return (
-
- <p>
-<Container id='watches'>
-   <Content>
-        <H1>Smartphones for everyone</H1>
-        <P>
-          Check our smartphones from budget level if you need basic usage to most advanced devices in the market
-        </P>
-        <StyleRoot>
-          
-        <Coverflow width="1000" height="500"
-    displayQuantityOfSide={2}
-    navigation={false}
-    enableScroll={true}
-    clickable={true}
-    active={0}
-    media={{
-      '@media (min-width: 1000px)': {
-        width: '1000px',
-        height: '500px'
-      },
-      '@media (max-width: 1000px)': {
-        width: '700px',
-        height: '300px'
-      },
-      '@media (max-width: 700px)': {
-        width: '400px',
-        height: '300px'
-      }
-    }}
-  >
-
-    <img src={watches[1].img} alt='XWatch Gold' onClick={() => handleWatchDetails('XWatch Gold')}/>
-    <img src={watches[2].img} alt='XWatch Pro' onClick={() => handleWatchDetails('XWatch Pro')}/>
-    <img src={watches[0].img} alt='XWatch Lite' onClick={() => handleWatchDetails('XWatch Lite')}/>
-    <img src={watches[3].img} alt='XBand Pro' onClick={() => handleWatchDetails('XBand Pro')} />
-    <img src={watches[4].img} alt='XBand Lite' onClick={() => handleWatchDetails('XBand Lite')} />
-  </Coverflow>
-  </StyleRoot>
-  {showWatchDetails}
-      </Content>
+    <p>
+      <Container id="watches">
+        <Content>
+          <H1>Smartwatches for everyone</H1>
+          <P>
+            Your favorite watches and bands for every sports and situations.
+          </P>
+          <StyleRoot>
+            <Coverflow
+              width="1000"
+              height="500"
+              displayQuantityOfSide={2}
+              navigation={false}
+              enableScroll={true}
+              clickable={true}
+              active={0}
+              media={{
+                "@media (min-width: 1000px)": {
+                  width: "1000px",
+                  height: "500px",
+                },
+                "@media (max-width: 1000px)": {
+                  width: "700px",
+                  height: "300px",
+                },
+                "@media (max-width: 700px)": {
+                  width: "400px",
+                  height: "300px",
+                },
+              }}
+            >
+              <img
+                src={watches[1].img}
+                alt="XWatch Gold"
+                onClick={() => handleWatchDetails("XWatch Gold")}
+              />
+              <img
+                src={watches[2].img}
+                alt="XWatch Pro"
+                onClick={() => handleWatchDetails("XWatch Pro")}
+              />
+              <img
+                src={watches[0].img}
+                alt="XWatch Lite"
+                onClick={() => handleWatchDetails("XWatch Lite")}
+              />
+              <img
+                src={watches[3].img}
+                alt="XBand Pro"
+                onClick={() => handleWatchDetails("XBand Pro")}
+              />
+              <img
+                src={watches[4].img}
+                alt="XBand Lite"
+                onClick={() => handleWatchDetails("XBand Lite")}
+              />
+            </Coverflow>
+          </StyleRoot>
+          {showWatchDetails}
+        </Content>
       </Container>
-
-</p>
-
-  )
+    </p>
+  );
 }
 
 export default SectionWatches;
