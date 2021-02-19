@@ -161,7 +161,7 @@ export const PhoneBox = styled.div`
   }
 `
 export const PhoneImage = styled.img`
-  width: 80%;
+  height: 180px;
 `
 // DESC SECTION
 export const SectionDesc = styled.section`
@@ -174,7 +174,8 @@ export const SectionDesc = styled.section`
   }
 `
 export const DescImage = styled.img`
-  width: 400px;
+  height: 500px;
+  margin: auto 30px;
 `
 // DESC PHONE
 export const DescDetails = styled.div`

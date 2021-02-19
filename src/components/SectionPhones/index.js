@@ -120,7 +120,7 @@ function SectionPhones() {
         <Li onClick={handleShowPhoneSeries} className={showPhoneSeries=== 'A Series' ? 'active' : ''}>
           A Series
         </Li>
-        <Li>
+        <Li onClick={handleShowPhoneSeries} className={showPhoneSeries=== 'Game Series' ? 'active' : ''}>
           Game Series
         </Li>
         <Li>
