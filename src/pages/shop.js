@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ShopNavbar from "../components/ShopNavbar";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/ShopNavbar/Sidebar";
 import ShopElement from "../components/Shop";
 
 function Shop() {

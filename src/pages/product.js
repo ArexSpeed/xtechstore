@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ProductNavbar from "../components/ProductSite/ProductNavbar";
-import Sidebar from "../components/Sidebar";
-import ShopElement from "../components/Shop";
+import Sidebar from "../components/ProductSite/Sidebar";
 import ProductSite from "../components/ProductSite";
 
 function Product() {

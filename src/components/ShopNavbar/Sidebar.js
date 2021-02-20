@@ -1,9 +1,12 @@
 import React from 'react'
-import {SidebarContainer, Icon, CloseIcon, SidebarWrapper, SidebarMenu, SidebarLink, SideBtnWrap, SidebarRoute} from './SidebarStyled';
+import {SidebarContainer, Icon, CloseIcon, SidebarWrapper, SidebarMenu, SidebarLink} from '../Sidebar/SidebarStyled';
 
 function Sidebar({isOpen, toggle}) {
+
+
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
+      
       <Icon onClick={toggle}>
         <CloseIcon />
       </Icon>
@@ -15,9 +18,6 @@ function Sidebar({isOpen, toggle}) {
           <SidebarLink to='tablets' onClick={toggle}>Tablets</SidebarLink>
           <SidebarLink to='accessories' onClick={toggle}>Accessories</SidebarLink>
         </SidebarMenu>
-        <SideBtnWrap>
-          <SidebarRoute to='/shop'>Shop</SidebarRoute>
-        </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>
   )
