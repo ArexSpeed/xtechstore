@@ -1,6 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { withRouter, Link } from 'react-router-dom';
 import {products} from '../data';
+import {StateContext} from '../../StateProvider'
+import {actionTypes} from '../../reducer'
 
 import {
   ProductContainer,
@@ -36,6 +38,7 @@ import {
 
 const ProductSite = ({match}) => {
   const [device, setDevice] = useState()
+  const [{bagItems}, dispatch] = useContext(StateContext);
   useEffect(() => {
     window.scrollTo(0,0);
   }, [])
@@ -43,6 +46,13 @@ const ProductSite = ({match}) => {
     products.find(product => product.id === +match.params.id && setDevice(product.device))
     console.log(device, 'device')
   }, [match.params])
+
+
+  const addToBag = (phone) => {
+    //console.log(model, price)
+    console.log(phone, 'add to bag')
+    dispatch({type: actionTypes.ADD_BAG_ITEM, bagItems: [...bagItems, {...phone, qty: 1}]})
+  }
  
   const showProduct = products.filter(product => product.id === +match.params.id)
   .map((product, index) => (
@@ -90,7 +100,7 @@ const ProductSite = ({match}) => {
       </ProductTableRow>
     </ProductTable>
 
-    <ProductButton>Add to cart</ProductButton>
+    <ProductButton onClick={() => addToBag(product)}>Add to cart</ProductButton>
   </ProductDetails>
   </>
     )
@@ -145,7 +155,7 @@ const ProductSite = ({match}) => {
         </ProductTableRow>
       </ProductTable>
   
-      <ProductButton>Add to cart</ProductButton>
+      <ProductButton onClick={() => addToBag(product)}>Add to cart</ProductButton>
     </ProductDetails>
     </>
       ) : 
@@ -164,7 +174,7 @@ const ProductSite = ({match}) => {
       <ProductDesc>{product.description}</ProductDesc>
       
   
-      <ProductButton>Add to cart</ProductButton>
+      <ProductButton onClick={() => addToBag(product)}>Add to cart</ProductButton>
     </ProductDetails>
     </>
       ) : ''
@@ -180,7 +190,7 @@ const ProductSite = ({match}) => {
               <ShopBoxDesc>{product.ram}/{product.storage}/{product.size}"</ShopBoxDesc>
               <ShopBoxActions>
                 <ActionsPrice>{product.price}$</ActionsPrice>
-                <ActionsAdd onClick={() => console.log('add')}>+</ActionsAdd>
+                <ActionsAdd onClick={() => addToBag(product)}>+</ActionsAdd>
                 <Link to={`/product/${product.id}`}> <ActionsDetails>Details</ActionsDetails></Link>
               </ShopBoxActions>
             </ShopBox>
