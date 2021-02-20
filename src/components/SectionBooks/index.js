@@ -18,7 +18,7 @@ import {
   Td,
 } from "./XBookStyled";
 
-import { xbooks } from "../data";
+import { products } from "../data";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./style.css";
@@ -43,7 +43,8 @@ function SectionBooks() {
     setTransition(false);
   };
 
-  const showBooks = xbooks.filter(xbook => xbook.id === 13 || xbook.id === 16 || xbook.id === 19 || xbook.id === 22)
+  const showBooks = products.filter(product => product.device === 'Ultrabook')
+  .filter(xbook => xbook.id === 13 || xbook.id === 16 || xbook.id === 19 || xbook.id === 22)
   .map((xbook, index) => (
     <BookCard
       data-aos={`${index % 2 === 0 ? "fade-right" : "fade-left"}`}

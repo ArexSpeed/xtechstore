@@ -1,11 +1,7 @@
 import React, {useContext} from "react";
 import {Link} from 'react-router-dom';
 import { WaveDown } from "../SectionWave";
-import {phones} from '../data';
-import {xbooks} from '../data';
-import {tablets} from '../data';
-import {watches} from '../data';
-import {accessories} from '../data';
+import {products} from '../data';
 
 import {
   ShopContainer,
@@ -35,7 +31,8 @@ function Shop() {
     dispatch({type: actionTypes.ADD_BAG_ITEM, bagItems: [...bagItems, {...phone, qty: 1}]})
   }
 
-  const showPhoneBox = phones.map((phone, index) => (
+  const showPhoneBox = products.filter(product => product.device === 'Phone')
+  .map((phone, index) => (
     <ShopBox key={index}>
               <ShopBoxImg src={phone.img} />
               <ShopBoxName>{phone.model}</ShopBoxName>
@@ -48,7 +45,8 @@ function Shop() {
             </ShopBox>
   ))
 
-  const showXBooksBox = xbooks.map((ultrabook, index) => (
+  const showXBooksBox = products.filter(product => product.device === 'Ultrabook')
+  .map((ultrabook, index) => (
     <ShopBox key={index}>
               <ShopBoxImg src={ultrabook.img} />
               <ShopBoxName>{ultrabook.model}</ShopBoxName>
@@ -61,7 +59,8 @@ function Shop() {
             </ShopBox>
   ))
 
-  const showTabletsBox = tablets.map((tablet, index) => (
+  const showTabletsBox = products.filter(product => product.device === 'Tablet')
+  .map((tablet, index) => (
     <ShopBox key={index}>
               <ShopBoxImg src={tablet.img} />
               <ShopBoxName>{tablet.model}</ShopBoxName>
@@ -74,7 +73,8 @@ function Shop() {
             </ShopBox>
   ))
 
-  const showWatchesBox = watches.map((watch, index) => (
+  const showWatchesBox = products.filter(product => product.device === 'Watch')
+  .map((watch, index) => (
     <ShopBox key={index}>
               <ShopBoxImg src={watch.img} />
               <ShopBoxName>{watch.model}</ShopBoxName>
@@ -87,7 +87,8 @@ function Shop() {
             </ShopBox>
   ))
 
-  const showAccessoriesBox = accessories.map((accessory, index) => (
+  const showAccessoriesBox = products.filter(product => product.device === 'Accessory')
+  .map((accessory, index) => (
     <ShopBox key={index}>
               <ShopBoxImg src={accessory.img} />
               <ShopBoxName>{accessory.model}</ShopBoxName>

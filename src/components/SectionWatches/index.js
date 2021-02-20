@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import {Container, Content, H1, P, WatchContainer, WatchDetails, WatchImage, WatchName, WatchDesc, WatchP, WatchButton} from './WatchesStyled';
 import {Link} from 'react-router-dom';
-import {watches} from '../data';
+import {products} from '../data';
 import Coverflow from 'react-coverflow';
 import { StyleRoot } from 'radium';
 import './style.css';
@@ -15,7 +15,7 @@ function SectionWatches() {
   }
 
 
-  const showWatchDetails = watches
+  const showWatchDetails = products.filter(product => product.device === 'Watch')
   .filter(watch => watch.model === watchModel)
   .map((watch,index) => (
     <WatchContainer key={index}>
@@ -75,27 +75,27 @@ function SectionWatches() {
               }}
             >
               <img
-                src={watches[1].img}
+                src={products[25].img}
                 alt="XWatch Gold"
                 onClick={() => handleWatchDetails("XWatch Gold")}
               />
               <img
-                src={watches[2].img}
+                src={products[26].img}
                 alt="XWatch Pro"
                 onClick={() => handleWatchDetails("XWatch Pro")}
               />
               <img
-                src={watches[0].img}
+                src={products[24].img}
                 alt="XWatch Lite"
                 onClick={() => handleWatchDetails("XWatch Lite")}
               />
               <img
-                src={watches[3].img}
+                src={products[27].img}
                 alt="XBand Pro"
                 onClick={() => handleWatchDetails("XBand Pro")}
               />
               <img
-                src={watches[4].img}
+                src={products[28].img}
                 alt="XBand Lite"
                 onClick={() => handleWatchDetails("XBand Lite")}
               />

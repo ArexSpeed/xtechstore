@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import {
   ProductContainer,
@@ -33,6 +33,13 @@ import {
 } from "../Shop/ShopStyled";
 
 function ProductSite({ match }) {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [])
+
+
+
   return (
     <>
       <ProductContainer>

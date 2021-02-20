@@ -1,12 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Content, H1, P, AccessoriesSection, AccessoriesBox, AccessoriesName, AccessoriesImg} from './AccessoriesStyled';
-import {accessories} from '../data';
+import {products} from '../data';
 import './grid.css';
 
 function SectionAccessories() {
 
-  const showAccessories = accessories.map((accessory, index) => (
+  const showAccessories = products.filter(product => product.device === 'Accessory')
+  .map((accessory, index) => (
     <AccessoriesBox index={index} className={`gridarea-${index}`}>
           <AccessoriesName>
                 {accessory.model}

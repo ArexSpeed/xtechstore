@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Content, H1, P, TabletsSection, TabletCard, TabletImg, TabletTitle,TabletDesc,  TabletDetails, TabletButton } from './TabletsStyled';
-import {tablets} from '../data';
+import {products} from '../data';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 function SectionTablets() {
@@ -24,7 +24,8 @@ function SectionTablets() {
     setDisplayBookCardHover(-1);
   }
 
-  const showTablet = tablets.filter(tablet => tablet.id === 30 || tablet.id === 33 || tablet.id === 36)
+  const showTablet = products.filter(product => product.device === 'Tablet')
+  .filter(tablet => tablet.id === 30 || tablet.id === 33 || tablet.id === 36)
   .map((tablet, index) => (
     <TabletCard cardNo={index} key={index}>
           <TabletImg src={tablet.img} />

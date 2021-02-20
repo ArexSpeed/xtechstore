@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Content, H1, P, Ul, Li, PhoneBoxes, PhonesShow, PhoneBox, PhoneImage, PhoneName, SectionDesc, DescDetails, DescImage, DescPhoneName, Table, Tr, Td, Button} from './PhonesStyled';
-import {phones} from '../data';
+import {products} from '../data';
 
 function SectionPhones() {
   const [showPhoneSeries, setShowPhoneSeries] = useState('Pro Series');
@@ -31,7 +31,7 @@ function SectionPhones() {
     setShowPhoneModel(model)
   }
 
-  const showBoxes =  phones
+  const showBoxes =  products.filter(product => product.device === 'Phone')
   .filter(phone => phone.series === showPhoneSeries)
   .map((phone, index) =>  (
               <PhoneBox key={index} onClick={() => handleShowPhoneModel(phone.model)}>
@@ -44,7 +44,7 @@ function SectionPhones() {
 
       ))
 
-  const showPhoneModelBox =  phones
+  const showPhoneModelBox =  products.filter(product => product.device === 'Phone')
   .filter(phone => phone.model === showPhoneModel)
   .map((phone, index) => (
     <>
