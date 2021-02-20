@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ShopNavbar from "../components/ShopNavbar";
+import ProductNavbar from "../components/ProductSite/ProductNavbar";
 import Sidebar from "../components/Sidebar";
 import ShopElement from "../components/Shop";
 import ProductSite from "../components/ProductSite";
@@ -14,7 +14,7 @@ function Product() {
   return (
     <>
       <Sidebar isOpen={isOpen} toggle={toggle} />
-      <ShopNavbar toggle={toggle} />
+      <ProductNavbar toggle={toggle} />
       <ProductSite />
     </>
   );
