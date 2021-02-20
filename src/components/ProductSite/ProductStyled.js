@@ -13,7 +13,7 @@ export const ProductContainer = styled.div`
 export const ProductContainerImage = styled.div`
    flex: 0.4;
    height: 100%;
-   //border-radius: 0 150% 150% 0;
+   max-width: 40%;
    background: ${style.secondaryColor};
    display: flex;
    flex-direction: row;
@@ -31,8 +31,8 @@ export const ProductImageTitle = styled.h1`
 export const ProductImage = styled.img`
   position: absolute;
   right: -10%;
-  width: 400px;
-  height: 400px;
+  max-width: 400px;
+  max-height: 400px;
   background: transparent;
 `;
 
@@ -54,6 +54,7 @@ export const ProductPrice = styled.h3`
 `
 export const ProductDesc = styled.p`
   color: rgba(0,0,0,.6);
+  width: 70%;
   margin-bottom: 10px;
 `
 export const ProductTable = styled.div`

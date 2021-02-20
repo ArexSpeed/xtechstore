@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import { withRouter } from 'react-router-dom';
+import {products} from '../data';
 
 import {
   ProductContainer,
@@ -32,59 +34,141 @@ import {
   ActionsDetails,
 } from "../Shop/ShopStyled";
 
-function ProductSite({ match }) {
-
+const ProductSite = ({match}) => {
   useEffect(() => {
     window.scrollTo(0,0);
   }, [])
 
+  const showProduct = products.filter(product => product.id === +match.params.id)
+  .map((product, index) => (
+    product.device === 'Phone' || product.device === 'Ultrabook' || product.device === 'Tablet'
+    ?
+    (
+    <>
+    <ProductContainerImage key={index}>
+    <ProductImageTitle>{product.series}</ProductImageTitle>
+    <ProductImage src={product.img} />
+  </ProductContainerImage>
 
+  <ProductDetails>
+    <ProductTitle>{product.model}</ProductTitle>
+    <ProductPrice>{product.price}$</ProductPrice>
+    <ProductDesc>{product.description}</ProductDesc>
+    <ProductTable>
+      <ProductTableRow>
+      <ProductTr>
+        <ProductTd>{product.ram}</ProductTd>
+        <ProductTdDesc>RAM</ProductTdDesc>
+      </ProductTr>
+      <ProductTr>
+        <ProductTd>{product.storage}</ProductTd>
+        <ProductTdDesc>Storage</ProductTdDesc>
+      </ProductTr>
+      <ProductTr>
+        <ProductTd>{product.size}"</ProductTd>
+        <ProductTdDesc>Size</ProductTdDesc>
+      </ProductTr>
+      </ProductTableRow>
+      <ProductTableRow>
+      <ProductTr>
+        <ProductTd>{product.camera}</ProductTd>
+        <ProductTdDesc>Camera</ProductTdDesc>
+      </ProductTr>
+      <ProductTr>
+        <ProductTd>{product.cpu}</ProductTd>
+        <ProductTdDesc>CPU</ProductTdDesc>
+      </ProductTr>
+      <ProductTr>
+        <ProductTd>{product.battery}</ProductTd>
+        <ProductTdDesc>Battery</ProductTdDesc>
+      </ProductTr>
+      </ProductTableRow>
+    </ProductTable>
+
+    <ProductButton>Add to cart</ProductButton>
+  </ProductDetails>
+  </>
+    )
+    : product.device === 'Watch' ?
+
+    (
+      <>
+      <ProductContainerImage key={index}>
+      <ProductImageTitle>{product.series}</ProductImageTitle>
+      <ProductImage src={product.img} />
+    </ProductContainerImage>
+  
+    <ProductDetails>
+      <ProductTitle>{product.model}</ProductTitle>
+      <ProductPrice>{product.price}$</ProductPrice>
+      <ProductDesc>{product.description}</ProductDesc>
+      <ProductTable>
+        <ProductTableRow>
+        <ProductTr>
+          <ProductTd>{product.ram}</ProductTd>
+          <ProductTdDesc>RAM</ProductTdDesc>
+        </ProductTr>
+        <ProductTr>
+          <ProductTd>{product.storage}</ProductTd>
+          <ProductTdDesc>Storage</ProductTdDesc>
+        </ProductTr>
+        <ProductTr>
+          <ProductTd>{product.size}"</ProductTd>
+          <ProductTdDesc>Size</ProductTdDesc>
+        </ProductTr>
+        </ProductTableRow>
+        <ProductTableRow>
+        <ProductTr>
+          <ProductTd>{product.fitness}</ProductTd>
+          <ProductTdDesc>Sports</ProductTdDesc>
+        </ProductTr>
+        <ProductTr>
+          <ProductTd>{product.cpu}</ProductTd>
+          <ProductTdDesc>CPU</ProductTdDesc>
+        </ProductTr>
+        <ProductTr>
+          <ProductTd>{product.battery}</ProductTd>
+          <ProductTdDesc>Battery</ProductTdDesc>
+        </ProductTr>
+        </ProductTableRow>
+        <ProductTableRow>
+        <p>Gps: {product.addons.gps ? <span>&#10003;</span> : 	<span>&times;</span>}</p>
+      <p>Health Care: {product.addons.healthcare ? <span>&#10003;</span> : <span>&times;</span>}</p>
+      <p>WiFi: {product.addons.wifi ? <span>&#10003;</span> : <span>&times;</span>}</p>
+      <p>Esim: {product.addons.esim ? <span>&#10003;</span> : <span>&times;</span>}</p>
+      <p>Waterproof: {product.addons.waterproof ? <span>&#10003;</span> : <span>&times;</span>}</p>
+        </ProductTableRow>
+      </ProductTable>
+  
+      <ProductButton>Add to cart</ProductButton>
+    </ProductDetails>
+    </>
+      ) : 
+      product.device === 'Accessory' ?
+
+    (
+      <>
+      <ProductContainerImage key={index}>
+      <ProductImageTitle>{product.series}</ProductImageTitle>
+      <ProductImage src={product.img} />
+    </ProductContainerImage>
+  
+    <ProductDetails>
+      <ProductTitle>{product.model}</ProductTitle>
+      <ProductPrice>{product.price}$</ProductPrice>
+      <ProductDesc>{product.description}</ProductDesc>
+      
+  
+      <ProductButton>Add to cart</ProductButton>
+    </ProductDetails>
+    </>
+      ) : ''
+  ))
 
   return (
     <>
       <ProductContainer>
-        <ProductContainerImage>
-          <ProductImageTitle>XBook</ProductImageTitle>
-          <ProductImage />
-        </ProductContainerImage>
-
-        <ProductDetails>
-          <ProductTitle>XPhone Pro</ProductTitle>
-          <ProductPrice>1200$</ProductPrice>
-          <ProductDesc>The best of our offer</ProductDesc>
-          <ProductTable>
-            <ProductTableRow>
-            <ProductTr>
-              <ProductTd>64GB</ProductTd>
-              <ProductTdDesc>RAM</ProductTdDesc>
-            </ProductTr>
-            <ProductTr>
-              <ProductTd>128GB</ProductTd>
-              <ProductTdDesc>Storage</ProductTdDesc>
-            </ProductTr>
-            <ProductTr>
-              <ProductTd>6,5"</ProductTd>
-              <ProductTdDesc>Size</ProductTdDesc>
-            </ProductTr>
-            </ProductTableRow>
-            <ProductTableRow>
-            <ProductTr>
-              <ProductTd>120MPx</ProductTd>
-              <ProductTdDesc>Camera</ProductTdDesc>
-            </ProductTr>
-            <ProductTr>
-              <ProductTd>X-36</ProductTd>
-              <ProductTdDesc>CPU</ProductTdDesc>
-            </ProductTr>
-            <ProductTr>
-              <ProductTd>5000mAh</ProductTd>
-              <ProductTdDesc>Battery</ProductTdDesc>
-            </ProductTr>
-            </ProductTableRow>
-          </ProductTable>
-
-          <ProductButton>Add to cart</ProductButton>
-        </ProductDetails>
+          {showProduct}
       </ProductContainer>
       
       <ProductOther>
@@ -113,4 +197,4 @@ function ProductSite({ match }) {
   );
 }
 
-export default ProductSite;
+export default withRouter(ProductSite);
