@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import {products} from '../data';
 
 import {
@@ -35,10 +35,15 @@ import {
 } from "../Shop/ShopStyled";
 
 const ProductSite = ({match}) => {
+  const [device, setDevice] = useState()
   useEffect(() => {
     window.scrollTo(0,0);
   }, [])
-
+  useEffect(() => {
+    products.find(product => product.id === +match.params.id && setDevice(product.device))
+    console.log(device, 'device')
+  }, [match.params])
+ 
   const showProduct = products.filter(product => product.id === +match.params.id)
   .map((product, index) => (
     product.device === 'Phone' || product.device === 'Ultrabook' || product.device === 'Tablet'
@@ -165,6 +170,23 @@ const ProductSite = ({match}) => {
       ) : ''
   ))
 
+  
+  const showOther = products.filter(product => product.device === device)
+  .map((product, index) => (
+    
+    <ShopBox key={index}>
+              <ShopBoxImg src={product.img} />
+              <ShopBoxName>{product.model}</ShopBoxName>
+              <ShopBoxDesc>{product.ram}/{product.storage}/{product.size}"</ShopBoxDesc>
+              <ShopBoxActions>
+                <ActionsPrice>{product.price}$</ActionsPrice>
+                <ActionsAdd onClick={() => console.log('add')}>+</ActionsAdd>
+                <Link to={`/product/${product.id}`}> <ActionsDetails>Details</ActionsDetails></Link>
+              </ShopBoxActions>
+            </ShopBox>
+    
+  ))
+
   return (
     <>
       <ProductContainer>
@@ -172,25 +194,9 @@ const ProductSite = ({match}) => {
       </ProductContainer>
       
       <ProductOther>
-        <ProductOtherTitle>Other phones</ProductOtherTitle>
+        <ProductOtherTitle>Other {device}</ProductOtherTitle>
         <ShopBoxes>
-          <ShopBox>
-            <ShopBoxImg />
-            <ShopBoxName>XPhone Pro</ShopBoxName>
-            <ShopBoxDesc>16GB/512GB/6,5"</ShopBoxDesc>
-            <ShopBoxActions>
-              <ActionsPrice>999$</ActionsPrice>
-              <ActionsAdd>+</ActionsAdd>
-              <ActionsDetails>Details</ActionsDetails>
-            </ShopBoxActions>
-          </ShopBox>
-          <ShopBox></ShopBox>
-          <ShopBox></ShopBox>
-          <ShopBox></ShopBox>
-          <ShopBox></ShopBox>
-          <ShopBox></ShopBox>
-          <ShopBox></ShopBox>
-          <ShopBox></ShopBox>
+          {showOther}
         </ShopBoxes>
       </ProductOther>
     </>

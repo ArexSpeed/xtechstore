@@ -148,5 +148,4 @@ export const ProductOtherTitle = styled.div`
   color: #000;
   background: ${style.primaryColor};
   border-radius: 0 20px 20px 0;
-  z-index: 90;
 `
