@@ -8,6 +8,10 @@ export const ProductContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 768px){
+    flex-direction: column;
+    height: auto;
+  }
 `;
 
 export const ProductContainerImage = styled.div`
@@ -19,6 +23,10 @@ export const ProductContainerImage = styled.div`
    flex-direction: row;
    align-items: center;
    position: relative;
+   @media screen and (max-width: 768px){
+    min-height: 400px;
+    min-width: 100%;
+  }
 `
 export const ProductImageTitle = styled.h1`
   color: rgba(255,255,255,.5);
@@ -26,6 +34,9 @@ export const ProductImageTitle = styled.h1`
   text-transform: uppercase;
     transform: rotate(90deg);
   text-shadow:  0 0 15px rgba(0,0,0,.5);
+  @media screen and (max-width: 768px){
+    font-size: 50px;
+  }
 `
 
 export const ProductImage = styled.img`
@@ -34,6 +45,11 @@ export const ProductImage = styled.img`
   max-width: 400px;
   max-height: 400px;
   background: transparent;
+  @media screen and (max-width: 768px){
+    right: 0;
+    max-width: 300px;
+    max-height: 300px;
+  }
 `;
 
 export const ProductDetails = styled.div`
@@ -42,6 +58,9 @@ export const ProductDetails = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 768px){
+    padding-top: 50px;
+  }
 `;
 
 export const ProductTitle = styled.h2`
@@ -69,6 +88,7 @@ export const ProductTableRow = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 `
 export const ProductTr = styled.div`
   display: flex;

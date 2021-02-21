@@ -49,8 +49,7 @@ const ProductSite = ({match}) => {
 
 
   const addToBag = (phone) => {
-    //console.log(model, price)
-    console.log(phone, 'add to bag')
+
     dispatch({type: actionTypes.ADD_BAG_ITEM, bagItems: [...bagItems, {...phone, qty: 1}]})
   }
  
@@ -191,7 +190,7 @@ const ProductSite = ({match}) => {
               <ShopBoxActions>
                 <ActionsPrice>{product.price}$</ActionsPrice>
                 <ActionsAdd onClick={() => addToBag(product)}>+</ActionsAdd>
-                <Link to={`/product/${product.id}`}> <ActionsDetails>Details</ActionsDetails></Link>
+                <Link to={`/product/${product.id}`} onClick={() => window.scrollTo(0,0)}> <ActionsDetails>Details</ActionsDetails></Link>
               </ShopBoxActions>
             </ShopBox>
     
