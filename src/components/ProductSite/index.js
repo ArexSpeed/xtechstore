@@ -186,7 +186,8 @@ const ProductSite = ({match}) => {
     <ShopBox key={index}>
               <ShopBoxImg src={product.img} />
               <ShopBoxName>{product.model}</ShopBoxName>
-              <ShopBoxDesc>{product.ram}/{product.storage}/{product.size}"</ShopBoxDesc>
+              {product.device !== 'Accessory' && (<ShopBoxDesc>{product.ram}/{product.storage}/{product.size}"</ShopBoxDesc>)}
+              
               <ShopBoxActions>
                 <ActionsPrice>{product.price}$</ActionsPrice>
                 <ActionsAdd onClick={() => addToBag(product)}>+</ActionsAdd>
