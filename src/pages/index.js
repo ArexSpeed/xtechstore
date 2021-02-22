@@ -11,6 +11,7 @@ import SectionBooks from '../components/SectionBooks';
 import SectionWatches from '../components/SectionWatches';
 import SectionTablets from '../components/SectionTablets';
 import SectionAccessories from '../components/SectionAccessories';
+import Footer from '../components/Footer';
 
 
 function Home() {
@@ -34,6 +35,7 @@ function Home() {
       <SectionTablets />
       <BannerAccesories />
       <SectionAccessories />
+      <Footer />
     </>
   )
 }

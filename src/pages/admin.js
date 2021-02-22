@@ -1,6 +1,7 @@
 import React from 'react'
 import AdminMain from '../components/AdminMain'
 import NavAdmin from '../components/AdminMain/NavAdmin'
+import Footer from '../components/Footer'
 
 
 const Admin = () => {
@@ -9,6 +10,7 @@ const Admin = () => {
     <div>
       <NavAdmin />
       <AdminMain />
+      <Footer />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Content, H1, P, AccessoriesSection, AccessoriesBox, AccessoriesName, AccessoriesImg} from './AccessoriesStyled';
+import {WaveDown, WaveDownRotate} from '../SectionWave';
 import {products} from '../data';
 import './grid.css';
 
@@ -32,6 +33,7 @@ function SectionAccessories() {
       </AccessoriesSection>
       
       </Content>
+      <WaveDown fill="#000" />
       </Container>
 
 </>

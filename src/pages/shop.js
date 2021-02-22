@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ShopNavbar from "../components/ShopNavbar";
 import Sidebar from "../components/ShopNavbar/Sidebar";
 import ShopElement from "../components/Shop";
+import Footer from "../components/Footer";
 
 function Shop() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,9 @@ function Shop() {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <ShopNavbar toggle={toggle} />
       <ShopElement />
+
+      <Footer />
+      
     </>
   );
 }

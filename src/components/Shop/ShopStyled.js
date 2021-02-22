@@ -3,11 +3,12 @@ import * as style from "../StyleVariables";
 
 export const ShopContainer = styled.div`
   width: 100vw;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background: transparent;
 `;
 
 export const ShopBanner = styled.div`
@@ -21,6 +22,7 @@ export const ShopBanner = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  z-index: -1;
 `;
 export const ShopSection = styled.section`
   width: 100%;
