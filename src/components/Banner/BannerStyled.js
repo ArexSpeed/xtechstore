@@ -1,16 +1,15 @@
 import styled from 'styled-components';
-import {MdKeyboardArrowRight, MdArrowForward} from 'react-icons/md'
 import * as style from '../StyleVariables';
 
 export const HeroContainer = styled.div`
-  background: url(${props => props.img ? props.img : 'https://blog.daraz.com.bd/wp-content/uploads/2019/10/iphone-11-banner.png'});
+  background: url(${props => props.img ? props.img : ''});
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: stretch;
-  //padding: 0 30px;
   min-height: 80vh;
   position: relative;
   &::before{
@@ -25,21 +24,7 @@ export const HeroContainer = styled.div`
   height: 100%;
   z-index: -1;
   }
-  @media screen and (max-width: 768px){
-    background-size: cover;
-    background-position: center;
-  }
 
-`
-export const HeroBg = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 `
 
 export const HeroContent = styled.div`
@@ -57,6 +42,7 @@ export const HeroH1 = styled.h1`
   color: ${style.primaryColor};
   font-size: 48px;
   text-align: center;
+  text-shadow: 0 0 10px ${style.secondaryColorShadow};
   @media screen and (max-width: 768px){
     font-size: 40px;
   }

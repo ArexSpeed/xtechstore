@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
-import {Button} from '../ButtonElement';
-import {HeroContainer,HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowForward, ArrowRight} from './BannerStyled';
+import React  from 'react';
+import {HeroContainer,HeroContent, HeroH1, HeroP} from './BannerStyled';
 import {WaveDown, WaveUp, WaveUpRotate} from '../SectionWave';
-import banner from '../../images/watchbanner.jpg';
+import banner from '../../images/banner3.jpg';
 
 function BannerWatch() {
-  const [hover, setHover] = useState(false);
-
-  const onHover = () => {
-    setHover(!hover);
-  }
 
   return (
 

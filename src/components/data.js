@@ -21,13 +21,7 @@ import xtabflex from '../imgs/Xtabfold.png';
 import xtabpro from '../imgs/xtabpro2.png';
 import xtablite from '../imgs/xtabmii.png';
 
-import earpods from '../images/earpods.png';
-import headphone from '../images/headphone.png';
-import monitor from '../images/monitor.png';
-import keyboard from '../images/keyboard.jpg';
-import mouse from '../images/mouse.jpg';
-import powerbank from '../images/powerbank.jpg';
-import soundbar from '../images/soundbar.jpg';
+
 
 
 export const products = 
@@ -74,11 +68,11 @@ export const products =
   {id:37,device: "Tablet",series:"XTab",model:"XTab Lite",description:"With XTab Lite you have fun, amazing experiences from movies, organize all your task and easy connect to big screen.",img: xtablite,cpu:"6-cores X-Brain",ram:"6GB",storage:"128GB",camera:"64MPx",size:"10",battery:"5000mAh",price:"750"},
   {id:38,device: "Tablet",series:"XTab",model:"XTab Lite",description:"With XTab Lite you have fun, amazing experiences from movies, organize all your task and easy connect to big screen.",img: xtablite,cpu:"6-cores X-Brain",ram:"4GB",storage:"128GB",camera:"64MPx",size:"10",battery:"5000mAh",price:"500"},
 
-  {id:39,device: "Accessory",series:"Accessories",model:"XKey",description:" Quick response and quiet operation of the keys will provide you with exceptional comfort while using your computer. Rugged construction and durable printing on the buttons will allow you to enjoy your purchase for a long time.",price:"500",img: keyboard},
-  {id:40,device: "Accessory",series:"Accessories",model:"XMouse",description:"Fast, very precise mouse for everyone. Thanks to smart-connect function you can work on 3 devices at one time. Scroll through documents and web pages instantly with just one turn. The precision scroll option lets you accurately navigate lists, slides, and images.",price:"500",img: mouse},
-  {id:41,device: "Accessory",series:"Accessories",model:"XHead",description:"Listen to every detail of you favorite music. Thanks this headphones you will go to another level of sound feeling. They not only provide high quality sound, but are also comfortable to use. Their casing is made of flexible plastic pleasant to the touch.",price:"500",img: headphone},
-  {id:42,device: "Accessory",series:"Accessories",model:"XPods",description:"Experience the true freedom of TrueWireless headphones. The QCY T5 TWS features Bluetooth 5.0, which provides seamless pairing, no latency, no interference and a stable connection to your smartphone, tablet or PC.",price:"300",img: earpods},
-  {id:43,device: "Accessory",series:"Accessories",model:"XPower",description:"Charge your devices wherever you are. XPower has 20000mAh that is enought to charge your devices a couple times. You can charge even 5 devices simultaneously ",price:"150",img: powerbank},
-  {id:44,device: "Accessory",series:"Accessories",model:"XBar",description:"Watch your favorite movies and feel the sound like in cinema. Soundbar brings to you amazing experience of sound comparable to best theaters effect. For people who want to get even more enjoyment from watching movies, series or matches, watching concerts and listening to music or even playing video games.  ",price:"400",img: soundbar},
-  {id:45,device: "Accessory",series:"Accessories",model:"XMonitor",description:"The universal XMonitor will be perfect both at home and in the office. High-resolution matrix will provide a clear image and sufficient working space for comfortable work. Modern design of the monitor will be a perfect complement to the composition of any computer workstation. ",price:"500",img: monitor}
+  {id:39,device: "Accessory",series:"Accessories",model:"XKey",description:" Quick response and quiet operation of the keys will provide you with exceptional comfort while using your computer. Rugged construction and durable printing on the buttons will allow you to enjoy your purchase for a long time.",price:"500",img: ''},
+  {id:40,device: "Accessory",series:"Accessories",model:"XMouse",description:"Fast, very precise mouse for everyone. Thanks to smart-connect function you can work on 3 devices at one time. Scroll through documents and web pages instantly with just one turn. The precision scroll option lets you accurately navigate lists, slides, and images.",price:"500",img: ''},
+  {id:41,device: "Accessory",series:"Accessories",model:"XHead",description:"Listen to every detail of you favorite music. Thanks this headphones you will go to another level of sound feeling. They not only provide high quality sound, but are also comfortable to use. Their casing is made of flexible plastic pleasant to the touch.",price:"500",img: ''},
+  {id:42,device: "Accessory",series:"Accessories",model:"XPods",description:"Experience the true freedom of TrueWireless headphones. The QCY T5 TWS features Bluetooth 5.0, which provides seamless pairing, no latency, no interference and a stable connection to your smartphone, tablet or PC.",price:"300",img: ''},
+  {id:43,device: "Accessory",series:"Accessories",model:"XPower",description:"Charge your devices wherever you are. XPower has 20000mAh that is enought to charge your devices a couple times. You can charge even 5 devices simultaneously ",price:"150",img: ''},
+  {id:44,device: "Accessory",series:"Accessories",model:"XBar",description:"Watch your favorite movies and feel the sound like in cinema. Soundbar brings to you amazing experience of sound comparable to best theaters effect. For people who want to get even more enjoyment from watching movies, series or matches, watching concerts and listening to music or even playing video games.  ",price:"400",img: ''},
+  {id:45,device: "Accessory",series:"Accessories",model:"XMonitor",description:"The universal XMonitor will be perfect both at home and in the office. High-resolution matrix will provide a clear image and sufficient working space for comfortable work. Modern design of the monitor will be a perfect complement to the composition of any computer workstation. ",price:"500",img: ''}
 ]

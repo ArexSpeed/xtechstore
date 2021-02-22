@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
-import {Button} from '../ButtonElement';
-import {HeroContainer,HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowForward, ArrowRight} from './BannerStyled';
+import React from 'react';
+import {HeroContainer,HeroContent, HeroH1, HeroP} from './BannerStyled';
 import {WaveDown, WaveDownRotate} from '../SectionWave';
-import bannerTab from '../../images/xtabbanner.jpeg';
+import banner from '../../images/banner4.jpeg';
 
 function BannerTab() {
-  const [hover, setHover] = useState(false);
-
-  const onHover = () => {
-    setHover(!hover);
-  }
 
   return (
 
  <>
-<HeroContainer img={bannerTab}>
+<HeroContainer img={banner}>
 <WaveDownRotate fill={'#fff'} />
    <HeroContent>
         <HeroH1>Comfort work in travel</HeroH1>

@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
-import {Button} from '../ButtonElement';
-import {HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowForward, ArrowRight} from './BannerStyled';
+import React from 'react';
+import {HeroContainer, HeroContent, HeroH1, HeroP} from './BannerStyled';
 import {WaveDown} from '../SectionWave';
+import banner from '../../images/banner1.jpg';
+
 
 function Banner() {
-  const [hover, setHover] = useState(false);
-
-  const onHover = () => {
-    setHover(!hover);
-  }
-
+  
   return (
 
  <>
-<HeroContainer id='home'>
+<HeroContainer id='home' img={banner}>
    <HeroContent>
         <HeroH1>New Tech Close To You</HeroH1>
         <HeroP>

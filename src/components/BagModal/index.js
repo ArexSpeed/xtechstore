@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import phone from "../../images/aphonemini.png";
 import {phones} from '../data';
 
 import {
