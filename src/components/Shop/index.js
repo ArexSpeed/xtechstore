@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import {Link} from 'react-router-dom';
 import { WaveDown } from "../SectionWave";
 import {products} from '../data';
+import bg from '../../images/shopbg.png'
 
 import {
   ShopContainer,
@@ -103,8 +104,8 @@ function Shop() {
   return (
     <>
       <ShopContainer>
-        <ShopBanner>
-          <WaveDown fill="#000" />
+        <ShopBanner img={bg} alt=''>
+          
         </ShopBanner>
 
         <ShopSection>

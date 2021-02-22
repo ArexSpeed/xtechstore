@@ -11,11 +11,12 @@ export const ShopContainer = styled.div`
 `;
 
 export const ShopBanner = styled.div`
-  width: 90%;
-  height: 450px;
+  width: 100vw;
+  height: 100%;
   border-radius: 10px;
   margin: 20px auto;
-  background: ${style.primaryColor};
+  background: url(${props => props.img ? props.img : ''});
+  background-position: center;
   position: fixed;
   top: 50%;
   left: 50%;
