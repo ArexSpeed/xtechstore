@@ -300,10 +300,8 @@ const AdminMain = () => {
         :
         "Something went wrong"
         }
-      
-
-        
-
+       
+      <p style={{margin: '50px',maxWidth: '90%', color: '#555', fontSize: '14px'}}>This is only an example of admin cms panel. You can change and add data and you will see changes on this admin panel but will be no changes ont he main site, there in a raw data. All data is stored in MongoDB. </p>
 
         </AdminContainer>
       </>

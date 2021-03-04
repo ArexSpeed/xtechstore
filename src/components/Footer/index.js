@@ -2,7 +2,7 @@ import React from 'react';
 import {animateScroll as scroll} from 'react-scroll';
 
 
-import {FooterContainer, FooterWrap, FooterLinksContainer, FooterLinksWrapper, FooterLinkTitle, FooterLinkItems, FooterLink,FooterLinkS,SocialMedia, SocialIconLink, SocialIcons, SocialLogo, SocialMediaWrap, WebsiteRights} from './FooterStyled';
+import {FooterContainer, FooterWrap, FooterLinksContainer, FooterLinksWrapper, FooterLinkTitle, FooterLinkItems, FooterLink,FooterLinkS,FooterLinkA,SocialMedia, SocialIconLink, SocialIcons, SocialLogo, SocialMediaWrap, WebsiteRights} from './FooterStyled';
 import {FaGithub, FaDribbble, FaLinkedin} from 'react-icons/fa';
 
 function Footer() {
@@ -30,10 +30,11 @@ function Footer() {
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle> Stack </FooterLinkTitle>
-                <FooterLink to='/'>React</FooterLink>
-                <FooterLink to='/'>Styled Components</FooterLink>
-                <FooterLink to='/'>Context API</FooterLink>
-                <FooterLink to='/'>Node</FooterLink>
+                <FooterLinkA href='https://reactjs.org/' target="_blank">React</FooterLinkA>
+                <FooterLinkA href='https://styled-components.com/' target="_blank">Styled Components</FooterLinkA>
+                <FooterLinkA href='https://reactjs.org/docs/context.html' target="_blank">Context API</FooterLinkA>
+                <FooterLinkA href='https://nodejs.org/en/' target="_blank">Node</FooterLinkA>
+                <FooterLinkA href='https://www.mongodb.com/' target="_blank">MongoDB</FooterLinkA>
 
             </FooterLinkItems>
             <FooterLinkItems>

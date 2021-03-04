@@ -38,7 +38,7 @@ export const ShopBoxSection = styled.section`
   transform: translateY(-150px);
 `;
 export const ShopBoxTitle = styled.article`
-  max-width: 100px;
+  max-width: 50px;
   height: 350px;
   margin: 20px 0;
   background: ${style.secondaryColor};
@@ -53,7 +53,11 @@ export const ShopBoxTitle = styled.article`
     text-transform: uppercase;
     transform: rotate(90deg);
     color: #fff;
+    @media screen and (max-width: 768px){
+    font-size: 14px;
+    }
   }
+  
 `;
 export const ShopBoxes = styled.div`
   display: flex;
@@ -88,8 +92,6 @@ export const ShopBox = styled.article`
     );
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2),
       -5px 0 10px rgba(255, 255, 255, 0.2);
-    /* box-shadow: 10px 0 20px ${style.secondaryColorShadow},
-      -10px 0 20px ${style.primaryColorShadow}; */
   }
   &::after {
     position: absolute;

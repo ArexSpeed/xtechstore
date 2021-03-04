@@ -66,6 +66,18 @@ export const FooterLinkS = styled(LinkS)`
   text-decoration: none;
   margin-bottom: 0.5rem;
   font-size: 14px;
+  cursor: pointer;
+
+  &:hover{
+    color: ${style.primaryColor};
+    transition: 0.3s ease-out;
+  }
+`
+export const FooterLinkA = styled.a`
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
 
   &:hover{
     color: ${style.primaryColor};
