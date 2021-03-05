@@ -1,10 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState} from 'react';
 import {Container, Content, H1, P, WatchContainer, WatchDetails, WatchImage, WatchName, WatchDesc, WatchP, WatchButton} from './WatchesStyled';
 import {Link} from 'react-router-dom';
 import {products} from '../data';
 import Coverflow from 'react-coverflow';
 import { StyleRoot } from 'radium';
-import './style.css';
 
 function SectionWatches() {
 
@@ -75,17 +74,17 @@ function SectionWatches() {
               }}
             >
               <img
-                src={products[25].img}
+                src={products[24].img}
                 alt="XWatch Gold"
                 onClick={() => handleWatchDetails("XWatch Gold")}
               />
               <img
-                src={products[26].img}
+                src={products[25].img}
                 alt="XWatch Pro"
                 onClick={() => handleWatchDetails("XWatch Pro")}
               />
               <img
-                src={products[24].img}
+                src={products[26].img}
                 alt="XWatch Lite"
                 onClick={() => handleWatchDetails("XWatch Lite")}
               />

@@ -74,8 +74,7 @@ export const BookCard = styled.div`
   }
 `;
 export const BookImg = styled.img`
-  width: 80%;
-  height: 70%;
+  max-width: 80%;
 `;
 export const BookTitle = styled.h3`
   font-size: 30px;

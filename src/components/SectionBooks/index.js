@@ -21,7 +21,7 @@ import {
 import { products } from "../data";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "./style.css";
+
 function SectionBooks() {
   const [displayBookCardHover, setDisplayBookCardHover] = useState(-1);
   const [transition, setTransition] = useState(false);
